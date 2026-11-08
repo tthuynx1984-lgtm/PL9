@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10243b">
+<title>Cổng nghiệp vụ Địa chính Phú Thọ | Bản 2.4 – Giao diện 3D</title>
+<style>
+:root{--bg:#f3f6fa;--panel:#fff;--ink:#172638;--muted:#64748b;--line:#dce4ed;--nav:#10243b;--nav2:#193753;--blue:#1769aa;--blue2:#eaf4fc;--green:#16794b;--greenbg:#eaf7f0;--amber:#9a5b08;--amberbg:#fff5df;--red:#a12c32;--redbg:#fff0f0;--shadow:0 8px 28px #17324d12}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:258px 1fr}.sidebar{background:var(--nav);color:#e8f0f8;padding:22px 15px;display:flex;flex-direction:column;gap:20px}.brand{display:flex;align-items:center;gap:11px;padding:3px 7px 18px;border-bottom:1px solid #ffffff20}.brandmark{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#55b4e8,#1769aa);display:grid;place-items:center;font-size:21px;font-weight:800}.brand b{display:block;font-size:13px;line-height:1.35}.brand small{color:#a9c0d4;font-size:11px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#bfd0df;text-align:left;padding:11px 12px;border-radius:9px;display:flex;gap:11px;align-items:center;font-size:13px}.nav button:hover,.nav button.active{background:#ffffff16;color:#fff}.nav .ico{width:20px;text-align:center;font-size:16px}.side-note{margin-top:auto;padding:12px;border:1px solid #ffffff24;border-radius:11px;color:#b7c9d9;font-size:11px}.side-note strong{color:#fff}.main{min-width:0}.topbar{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:5}.topbar h1{font-size:16px;margin:0}.top-actions{display:flex;align-items:center;gap:9px}.pill{padding:5px 9px;border-radius:20px;background:var(--greenbg);color:var(--green);font-size:11px;font-weight:700}.content{padding:25px 28px 50px;max-width:1500px;margin:auto}.view{display:none}.view.active{display:block}.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}.page-head h2{font-size:22px;margin:0 0 4px}.page-head p{margin:0;color:var(--muted);font-size:13px}.grid{display:grid;gap:16px}.grid.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.two{grid-template-columns:1.15fr .85fr}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);min-width:0}.stat{display:flex;justify-content:space-between;align-items:center}.stat small{color:var(--muted);font-weight:600}.stat strong{display:block;font-size:25px;margin-top:7px}.stat .symbol{width:40px;height:40px;display:grid;place-items:center;border-radius:11px;background:var(--blue2);color:var(--blue);font-size:19px}.section-title{font-size:15px;margin:0 0 13px}.muted{color:var(--muted)}.notice{border-radius:11px;padding:12px 14px;margin:12px 0;font-size:12px}.notice.info{background:var(--blue2);border:1px solid #cfe4f6;color:#244d70}.notice.warn{background:var(--amberbg);border:1px solid #f1dba9;color:#754b0a}.notice.danger{background:var(--redbg);border:1px solid #f2c8c8;color:#8a292e}.notice.success{background:var(--greenbg);border:1px solid #c9e9d6;color:#17603e}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 12px;border-radius:8px;font-weight:650;font-size:12px}.btn:hover{border-color:#8db8d8;background:#f7fbff}.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn.primary:hover{background:#10578f}.btn.soft{background:var(--blue2);border-color:#d3e6f5;color:var(--blue)}.btn.danger{color:var(--red)}.btn-row{display:flex;gap:8px;flex-wrap:wrap}.field{display:grid;gap:5px;margin-bottom:12px}.field label{font-size:12px;font-weight:700;color:#43566a}.field input,.field select,.field textarea,.search{width:100%;padding:9px 10px;border:1px solid #ccd7e2;border-radius:8px;background:#fff;color:var(--ink);outline:none}.field textarea{min-height:105px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus,.search:focus{border-color:#6aa8d2;box-shadow:0 0 0 3px #1769aa14}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f7f9fc;color:#53677b;font-size:11px;text-transform:uppercase;letter-spacing:.03em}tr:last-child td{border-bottom:0}.tag{display:inline-block;padding:3px 7px;border-radius:20px;font-size:10px;font-weight:750;background:#eef2f7;color:#526477}.tag.green{background:var(--greenbg);color:var(--green)}.tag.amber{background:var(--amberbg);color:var(--amber)}.tag.red{background:var(--redbg);color:var(--red)}.doc-list{display:grid;gap:9px}.doc{border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:7px}.doc-top{display:flex;justify-content:space-between;gap:12px}.doc h3{font-size:13px;margin:0}.doc p{font-size:11px;color:var(--muted);margin:0}.doc a{color:var(--blue);font-size:11px;font-weight:700;text-decoration:none}.doc a:hover{text-decoration:underline}.doc-meta{display:flex;gap:7px;flex-wrap:wrap}.checkline{display:flex;align-items:flex-start;gap:9px;padding:9px 0;border-bottom:1px solid #edf1f5;font-size:12px}.checkline:last-child{border:0}.checkline input{margin-top:3px;accent-color:var(--blue)}.checkline .sub{display:block;color:var(--muted);font-size:11px}.result{border:1px solid var(--line);border-radius:11px;padding:13px;margin-top:13px;background:#fbfcfe}.result h3{font-size:13px;margin:0 0 8px}.result ul{margin:6px 0 0;padding-left:19px}.result li{margin:4px 0;font-size:12px}.kpi{font-size:24px;font-weight:800;color:var(--blue)}.footer{margin-top:24px;color:#718196;font-size:11px;border-top:1px solid var(--line);padding-top:14px}.hidden{display:none!important}.empty{padding:28px;text-align:center;color:var(--muted);font-size:12px}.toast{position:fixed;right:22px;bottom:20px;background:#172638;color:#fff;padding:11px 15px;border-radius:9px;box-shadow:var(--shadow);z-index:20;font-size:12px;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}.mobile-menu{display:none}
+@media(max-width:1050px){.grid.cards{grid-template-columns:repeat(2,1fr)}.grid.two{grid-template-columns:1fr}}
+@media(max-width:720px){.app{display:block}.sidebar{display:none}.sidebar.open{display:flex;position:fixed;z-index:15;inset:0 auto 0 0;width:270px;box-shadow:0 0 0 100vmax #09152288}.mobile-menu{display:inline-flex}.topbar{padding:0 14px;height:60px}.topbar h1{font-size:13px}.content{padding:17px 13px 35px}.page-head{display:block}.page-head .btn-row{margin-top:12px}.grid.cards{grid-template-columns:1fr 1fr}.card{padding:14px}.two-col{grid-template-columns:1fr}.top-actions .pill{display:none}}
+@media print{.sidebar,.topbar,.btn,.top-actions{display:none!important}.app{display:block}.content{padding:0;max-width:none}.view{display:none!important}.view.active{display:block!important}.card{box-shadow:none;break-inside:avoid}.footer{display:block}}
+
+/* v2.2 professional two-column workspace */
+:root{--bg:#eef3f8;--nav:#102b46;--nav2:#183d5e;--blue:#176ca8;--line:#d8e2ec;--shadow:0 10px 30px rgba(16,43,70,.07)}
+body{background:linear-gradient(135deg,#eef3f8 0%,#f7f9fc 55%,#edf3f8 100%);font-size:14px}
+.app{grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 16px;background:linear-gradient(180deg,#102b46,#163c5c 75%,#102b46);box-shadow:8px 0 28px rgba(12,35,57,.08)}
+.brand{padding:5px 8px 21px}.brandmark{width:46px;height:46px;border-radius:14px;box-shadow:0 7px 18px #071b2d55}
+.nav{gap:7px}.nav button{padding:12px 13px;border:1px solid transparent;border-radius:10px;font-size:13px;transition:.18s ease}.nav button:hover{background:#ffffff12;transform:translateX(2px)}.nav button.active{background:#e8f3fb;color:#123c5e;border-color:#cfe3f2;font-weight:750;box-shadow:0 5px 14px #071b2d20}.nav button.active .ico{color:#176ca8}
+.side-note{line-height:1.6;background:#ffffff0b}
+.main{min-width:0}.topbar{height:72px;padding:0 clamp(16px,3vw,36px);background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid #dce5ee}.topbar h1{font-size:16px;letter-spacing:.01em}.content{max-width:1600px;padding:28px clamp(15px,3vw,38px) 55px}
+.page-head{align-items:center;margin-bottom:22px}.page-head h2{font-size:24px;letter-spacing:-.025em;color:#17334d}.page-head p{font-size:13px;line-height:1.65}
+.card{border-radius:16px;border-color:#dce5ee;box-shadow:0 8px 24px rgba(20,48,73,.055);padding:20px}.section-title{font-size:15px;color:#1d3b56}.stat strong{font-size:28px;color:#183c5b}.stat .symbol{width:44px;height:44px;border-radius:13px}
+.btn{border-radius:9px;padding:9px 13px;transition:.15s ease}.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px #163d5b12}.btn.primary{box-shadow:0 5px 13px #1769aa2a}
+.field{gap:7px;margin-bottom:14px}.field label{font-size:12px;color:#354f67}.field input,.field select,.field textarea,.search{border-radius:9px;padding:10px 12px;border-color:#cbd8e4}.field textarea{line-height:1.55}
+.doc{border-radius:12px;padding:14px}.doc h3{font-size:13px;color:#1c3a55}.notice{border-radius:12px;line-height:1.6}.footer{line-height:1.7}
+.workbench{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.92fr);gap:17px;margin:0 0 20px}.workbench .card{min-height:380px}.workbench-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}.workbench-icon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:#e9f3fb;color:#176ca8;font-size:17px}.workbench-head h3{margin:0;font-size:15px;color:#193b57}.workbench-head p{margin:2px 0 0;font-size:11px;color:#718196}.search-results{display:grid;gap:9px;margin-top:12px;max-height:300px;overflow:auto}.search-result{padding:11px 12px;border:1px solid #e0e8ef;border-radius:10px;background:#fbfdff}.search-result b{display:block;font-size:12px;color:#1d405d}.search-result small{display:block;color:#718196;font-size:11px;margin-top:3px}.search-result button{margin-top:8px}.ai-mini-result{min-height:100px;max-height:230px;overflow:auto;white-space:pre-wrap;line-height:1.65;background:#f7fafc;border:1px solid #e1e9f0;border-radius:10px;padding:12px;font-size:12px;color:#263e53}.ai-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai-mini-grid .field{margin:0}.ai-mini-grid .field.full{grid-column:1/-1}.workbench .notice{font-size:11px}
+.view{animation:fadeIn .18s ease}@keyframes fadeIn{from{opacity:.65;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media(max-width:1100px){.workbench{grid-template-columns:1fr 1fr}.app{grid-template-columns:230px minmax(0,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{display:none;height:100dvh}.sidebar.open{display:flex;position:fixed;z-index:30;inset:0 auto 0 0;width:280px}.workbench{grid-template-columns:1fr}.workbench .card{min-height:unset}.topbar{height:62px}.content{padding:17px 13px 35px}.page-head h2{font-size:20px}.card{padding:15px}.ai-mini-grid{grid-template-columns:1fr}.ai-mini-grid .field.full{grid-column:auto}}
+
+/* v2.3: giữ bố cục hai cột cả trên điện thoại; thanh trái thu gọn thành thanh biểu tượng */
+@media(max-width:760px){
+ .app{display:grid!important;grid-template-columns:70px minmax(0,1fr)!important;min-height:100vh}
+ .sidebar{display:flex!important;position:sticky!important;top:0!important;align-self:start;height:100dvh!important;width:70px!important;padding:12px 6px!important;gap:12px!important;overflow-y:auto}
+ .brand{justify-content:center;padding:0 0 12px!important}
+ .brandmark{width:42px;height:42px;flex:0 0 42px}
+ .brand>div:last-child{display:none}
+ .nav{gap:7px}
+ .nav button{justify-content:center;padding:11px 3px!important;gap:0!important;font-size:0!important;min-height:42px}
+ .nav button .ico{font-size:18px!important;width:auto!important}
+ .side-note{display:none!important}
+ .main{min-width:0;width:100%}
+ .topbar{height:58px!important;padding:0 9px!important}
+ .topbar h1{font-size:12px!important}
+ .mobile-menu{display:none!important}
+ .top-actions{gap:4px}
+ .top-actions .pill{display:none!important}
+ .content{padding:13px 9px 30px!important}
+ .workbench{grid-template-columns:1fr!important;gap:10px}
+ .workbench .card{min-height:unset;padding:12px!important}
+ .page-head{display:block}
+ .page-head h2{font-size:18px!important}
+ .page-head .btn-row{margin-top:10px}
+ .grid.cards{grid-template-columns:1fr 1fr!important;gap:8px}
+ .grid.two{grid-template-columns:1fr!important}
+ .card{padding:12px!important}
+ .two-col,.ai-mini-grid{grid-template-columns:1fr!important}
+ .ai-mini-grid .field.full{grid-column:auto!important}
+}
+@media(max-width:380px){.app{grid-template-columns:62px minmax(0,1fr)!important}.sidebar{width:62px!important;padding-left:4px!important;padding-right:4px!important}.content{padding-left:7px!important;padding-right:7px!important}.topbar h1{font-size:11px!important}}
+
+
+/* BẢN 2.4 — thanh tên ứng dụng toàn chiều ngang + giao diện nổi khối 3D */
+:root{--bg:#e7eef8;--panel:#ffffff;--ink:#172e49;--muted:#627994;--line:#d4e0ee;--nav:#102c4c;--blue:#176fb5;--blue2:#e5f2ff;--shadow:0 14px 32px rgba(22,53,91,.12)}
+body{background:radial-gradient(ellipse at 12% 0%,#d8eaff 0%,transparent 36%),linear-gradient(145deg,#e8f0fb 0%,#f5f8fd 48%,#dfeaf7 100%);color:#172e49}
+.app-brandbar{min-height:88px;padding:14px clamp(16px,3vw,38px);display:flex;align-items:center;justify-content:space-between;gap:18px;color:#f4f9ff;background:linear-gradient(115deg,#0b2543 0%,#174c78 48%,#236fa6 100%);border-bottom:1px solid #7eb4df;box-shadow:0 8px 24px rgba(9,35,64,.28),inset 0 1px 0 #ffffff35;position:relative;z-index:40}
+.app-brandbar:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 15%,#ffffff0c 42%,transparent 68%)}
+.app-brand-left,.app-brand-right{display:flex;align-items:center;gap:14px;position:relative;z-index:1}.app-brand-emblem{width:54px;height:54px;display:grid;place-items:center;border-radius:17px;font-weight:900;font-size:22px;color:#fff;background:linear-gradient(145deg,#8bd6ff 0%,#3189c8 42%,#145080 100%);border:1px solid #bce8ff80;box-shadow:inset 0 2px 3px #ffffff8c,inset 0 -5px 9px #062c5080,0 7px 15px #061e3e70;text-shadow:0 2px 4px #06335c}
+.app-brand-left strong{display:block;font-size:clamp(17px,2vw,22px);letter-spacing:.055em;line-height:1.25;text-shadow:0 2px 8px #061c36a6}.app-brand-left span{display:block;margin-top:5px;font-size:10px;letter-spacing:.14em;color:#c5e3fa;font-weight:700}
+.brand-status{font-size:10px;letter-spacing:.08em;color:#d9edff;font-weight:750;padding:9px 13px;border:1px solid #b7ddfa55;border-radius:30px;background:linear-gradient(135deg,#ffffff20,#ffffff08);box-shadow:inset 0 1px 0 #ffffff35,0 4px 12px #061d3540}.brand-status i{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:#7ff0bd;box-shadow:0 0 9px #7ff0bd}
+.brand-collapse{width:42px;height:42px;border:1px solid #c5e6ff70;border-radius:13px;color:#fff;font-size:19px;background:linear-gradient(145deg,#ffffff35,#ffffff0b);box-shadow:inset 0 1px 0 #ffffff66,0 5px 12px #071f3d55}.brand-collapse:hover{transform:translateY(-2px);background:linear-gradient(145deg,#ffffff50,#ffffff18)}
+.app{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:calc(100vh - 88px);align-items:stretch}
+.sidebar{position:sticky;top:0;height:calc(100vh - 0px);padding:22px 15px;background:linear-gradient(160deg,#102b49 0%,#17466f 56%,#0d2948 100%);border-right:1px solid #8bb7dc55;box-shadow:8px 0 30px #0a2b4c20,inset -1px 0 0 #ffffff15;z-index:10}
+.brand{padding:2px 7px 17px}.brandmark{background:linear-gradient(145deg,#b7e5ff,#348bc5 55%,#145080);color:#fff;border:1px solid #d4f0ff80;box-shadow:inset 0 2px 3px #ffffffa0,inset 0 -4px 8px #06335c80,0 6px 14px #061c3670}
+.nav{gap:9px}.nav button{min-height:48px;padding:10px 12px;gap:12px;border:1px solid #ffffff12;border-radius:13px;color:#d5e7f7;font-size:13px;font-weight:650;background:linear-gradient(120deg,#ffffff0d,#ffffff03);box-shadow:inset 0 1px 0 #ffffff12;transition:transform .18s,box-shadow .18s,background .18s}.nav button .ico{width:28px;height:28px;flex:0 0 28px;display:grid;place-items:center;font-size:21px;line-height:1;border-radius:9px;color:#c7e8ff;background:linear-gradient(145deg,#ffffff20,#ffffff08);box-shadow:inset 0 1px 2px #ffffff40,0 3px 7px #061d353d}.nav button:hover{transform:translateX(3px) translateY(-1px);background:linear-gradient(120deg,#ffffff25,#ffffff0d);box-shadow:0 7px 15px #061d3540}.nav button.active{color:#123b5f;background:linear-gradient(135deg,#ffffff 0%,#d6edff 58%,#b8ddf7 100%);border-color:#e9f7ff;box-shadow:inset 0 2px 3px #ffffff, inset 0 -3px 6px #8bb9d980,0 7px 16px #061d3555}.nav button.active .ico{color:#125b91;background:linear-gradient(145deg,#fafdff,#b9e0fa);box-shadow:inset 0 1px 2px #ffffff,0 3px 7px #377eae45}
+.side-note{border-radius:14px;background:linear-gradient(145deg,#ffffff18,#ffffff07);box-shadow:inset 0 1px 0 #ffffff22,0 5px 14px #061d3528}
+.main{min-width:0;background:linear-gradient(145deg,#f6f9feaa,#e8f0f9aa)}.topbar{height:68px;position:sticky;top:0;background:linear-gradient(180deg,#fffffffa,#edf5fded);border-bottom:1px solid #cfdeed;box-shadow:0 5px 18px #23476b12;z-index:8}.topbar h1{font-size:16px;color:#163b5c}.content{max-width:1680px;padding:28px clamp(15px,3vw,40px) 58px}
+.card{background:linear-gradient(150deg,#ffffff 0%,#f9fcff 68%,#edf5fd 100%);border:1px solid #d4e2f0;border-radius:19px;box-shadow:0 13px 27px rgba(24,61,99,.10),inset 0 1px 0 #fff,inset 0 -1px 0 #d9e7f5;transition:transform .18s,box-shadow .18s}.card:hover{box-shadow:0 17px 32px rgba(24,61,99,.14),inset 0 1px 0 #fff;transform:translateY(-1px)}
+.btn{border:1px solid #c8d9e9;background:linear-gradient(145deg,#fff,#eaf3fb);box-shadow:inset 0 1px 0 #fff,0 4px 9px #23496b14;border-radius:11px}.btn.primary{background:linear-gradient(145deg,#3296d4 0%,#176fb5 48%,#10528b 100%);border-color:#2a83be;box-shadow:inset 0 1px 0 #ffffff65,inset 0 -3px 6px #073e6b55,0 7px 15px #14588e42;text-shadow:0 1px 2px #07365e70}.btn.primary:hover{background:linear-gradient(145deg,#43a8e6,#1b79bf 52%,#145d99)}
+.stat .symbol,.workbench-icon{background:linear-gradient(145deg,#fff,#d7edff);border:1px solid #c7e4fa;box-shadow:inset 0 2px 3px #fff,0 5px 10px #3d7eac22}.notice{box-shadow:inset 0 1px 0 #ffffffb0,0 4px 10px #24496b0c}
+.field input,.field select,.field textarea,.search{background:linear-gradient(180deg,#fff,#f7fbff);box-shadow:inset 0 2px 4px #23496b0c;border-color:#c7d9e9}
+/* Thu gọn là chế độ tùy chọn; mặc định luôn hiện nhãn chức năng, kể cả điện thoại */
+.app.nav-compact{grid-template-columns:78px minmax(0,1fr)}.app.nav-compact .sidebar{padding-left:8px;padding-right:8px}.app.nav-compact .brand{justify-content:center}.app.nav-compact .brand>div:last-child{display:none}.app.nav-compact .nav button{justify-content:center;padding:9px 4px;font-size:0;gap:0}.app.nav-compact .nav button .ico{width:38px;height:38px;flex-basis:38px;font-size:24px}.app.nav-compact .side-note{display:none}
+@media(max-width:760px){
+ .app{display:grid!important;grid-template-columns:minmax(155px,34%) minmax(0,1fr)!important;min-height:calc(100dvh - 76px)}
+ .sidebar{display:flex!important;position:sticky!important;top:0!important;align-self:start;height:calc(100dvh - 0px)!important;width:auto!important;padding:13px 8px!important;gap:12px!important;overflow-y:auto}
+ .brand{justify-content:flex-start!important;padding:0 3px 12px!important}.brandmark{width:34px;height:34px;flex:0 0 34px;font-size:17px}.brand>div:last-child{display:block!important}.brand b{font-size:10px}.brand small{font-size:9px}
+ .nav{gap:7px}.nav button{justify-content:flex-start!important;min-height:47px;padding:8px 7px!important;gap:7px!important;font-size:11px!important;line-height:1.25;white-space:normal}.nav button .ico{width:25px!important;height:25px!important;flex:0 0 25px!important;font-size:18px!important}
+ .side-note{display:block!important;font-size:9px;padding:8px!important}.main{min-width:0;width:100%}.topbar{height:55px!important;padding:0 9px!important}.topbar h1{font-size:12px!important}.mobile-menu{display:none!important}.top-actions{gap:4px}.top-actions .pill{display:none!important}.content{padding:13px 9px 30px!important}.workbench{grid-template-columns:1fr!important;gap:10px}.workbench .card{min-height:unset;padding:12px!important}.page-head{display:block}.page-head h2{font-size:18px!important}.page-head .btn-row{margin-top:10px}.grid.cards{grid-template-columns:1fr 1fr!important;gap:8px}.grid.two{grid-template-columns:1fr!important}.card{padding:12px!important}.two-col,.ai-mini-grid{grid-template-columns:1fr!important}.ai-mini-grid .field.full{grid-column:auto!important}
+ .app.nav-compact{grid-template-columns:64px minmax(0,1fr)!important}.app.nav-compact .sidebar{width:64px!important}.app.nav-compact .nav button{font-size:0!important}.app.nav-compact .brand>div:last-child,.app.nav-compact .side-note{display:none!important}
+}
+@media(max-width:420px){.app-brandbar{min-height:76px;padding:10px 11px}.app-brand-emblem{width:42px;height:42px;border-radius:13px;font-size:18px}.app-brand-left{gap:9px}.app-brand-left strong{font-size:14px}.app-brand-left span{font-size:8px;letter-spacing:.08em}.brand-status{display:none}.app{grid-template-columns:minmax(142px,38%) minmax(0,1fr)!important}.nav button{font-size:10px!important;padding:7px 5px!important}.nav button .ico{width:22px!important;flex-basis:22px!important;font-size:16px!important}.topbar h1{font-size:11px!important}.content{padding-left:7px!important;padding-right:7px!important}}
+@media print{.app-brandbar{display:none!important}}
+
+
+/* v2.4.1 — thu gọn cột điều hướng còn một nửa, giữ nhãn chức năng có xuống dòng */
+.app{grid-template-columns:135px minmax(0,1fr)!important}
+.sidebar{width:135px!important;padding:18px 7px!important}
+.brand{gap:7px;padding-left:2px;padding-right:2px}
+.brandmark{width:34px;height:34px;flex:0 0 34px;font-size:17px}
+.brand b{font-size:10px;line-height:1.25}
+.brand small{font-size:9px;line-height:1.25}
+.nav{gap:7px}
+.nav button{justify-content:flex-start!important;align-items:flex-start!important;gap:7px!important;padding:9px 6px!important;font-size:11px!important;line-height:1.25!important;white-space:normal!important;overflow-wrap:anywhere;min-width:0}
+.nav button .ico{width:22px!important;height:22px!important;flex:0 0 22px!important;font-size:17px!important}
+.nav button:not(.ico){min-width:0}
+.side-note{font-size:9px;line-height:1.45;padding:8px}
+.app-brand-emblem{font-size:15px;letter-spacing:-.04em}
+.app-brand-left strong{font-size:clamp(14px,1.8vw,20px);letter-spacing:.025em}
+@media(max-width:760px){
+ .app{grid-template-columns:135px minmax(0,1fr)!important}
+ .sidebar{width:135px!important;padding:12px 6px!important}
+ .brand{justify-content:flex-start!important}
+ .brand>div:last-child{display:block!important}
+ .brandmark{width:30px;height:30px;flex:0 0 30px;font-size:15px}
+ .brand b{font-size:9px}.brand small{font-size:8px}
+ .nav button{font-size:10px!important;line-height:1.2!important;padding:8px 5px!important;gap:5px!important}
+ .nav button .ico{width:20px!important;height:20px!important;flex-basis:20px!important;font-size:16px!important}
+ .side-note{display:block!important;font-size:8px!important;padding:6px!important}
+}
+@media(max-width:420px){
+ .app{grid-template-columns:125px minmax(0,1fr)!important}
+ .sidebar{width:125px!important;padding-left:5px!important;padding-right:5px!important}
+ .nav button{font-size:9px!important;padding:7px 4px!important}
+ .nav button .ico{width:18px!important;flex-basis:18px!important;font-size:15px!important}
+ .app-brand-left strong{font-size:12px!important}
+}
+
+
+
+/* v2.4.2 — thu hẹp thực tế thanh chức năng */
+.app{grid-template-columns:90px minmax(0,1fr)!important}
+.sidebar{width:90px!important;padding:14px 5px!important;gap:12px!important}
+.brand{display:flex;flex-direction:column;align-items:center;gap:5px;padding:0 0 10px!important;text-align:center}
+.brandmark{width:30px!important;height:30px!important;flex:0 0 30px!important;font-size:14px!important}
+.brand b{font-size:8px!important;line-height:1.2!important;overflow-wrap:anywhere}
+.brand small{font-size:7px!important;line-height:1.2!important;overflow-wrap:anywhere}
+.nav{gap:6px!important}
+.nav button{width:100%;min-width:0!important;display:flex;flex-direction:column;align-items:center!important;justify-content:flex-start!important;gap:3px!important;padding:7px 3px!important;font-size:9px!important;line-height:1.15!important;text-align:center!important;white-space:normal!important;overflow-wrap:anywhere;word-break:normal}
+.nav button .ico{width:18px!important;height:18px!important;flex:0 0 18px!important;font-size:14px!important}
+.side-note{padding:5px!important;font-size:7px!important;line-height:1.25!important;overflow-wrap:anywhere}
+@media(max-width:760px){
+ .app{grid-template-columns:84px minmax(0,1fr)!important}
+ .sidebar{width:84px!important;padding:10px 4px!important;display:flex!important;position:sticky!important;top:0!important;height:100dvh!important}
+ .brand{flex-direction:column!important;align-items:center!important;text-align:center!important;padding:0 0 8px!important}
+ .brand>div:last-child{display:block!important;min-width:0;width:100%}
+ .brandmark{width:27px!important;height:27px!important;flex-basis:27px!important;font-size:13px!important}
+ .brand b{font-size:7.5px!important}.brand small{font-size:7px!important}
+ .nav button{flex-direction:column!important;align-items:center!important;gap:3px!important;padding:7px 2px!important;font-size:8.5px!important;line-height:1.12!important;text-align:center!important}
+ .nav button .ico{width:16px!important;height:16px!important;flex-basis:16px!important;font-size:13px!important}
+ .side-note{display:none!important}
+}
+@media(max-width:420px){
+ .app{grid-template-columns:78px minmax(0,1fr)!important}
+ .sidebar{width:78px!important;padding-left:3px!important;padding-right:3px!important}
+ .nav button{font-size:8px!important;padding:6px 2px!important}
+ .nav button .ico{width:15px!important;height:15px!important;flex-basis:15px!important;font-size:12px!important}
+ .app.nav-compact{grid-template-columns:60px minmax(0,1fr)!important}
+ .app.nav-compact .sidebar{width:60px!important}
+}
+
+
+/* v2.4.3 — bố cục thanh chức năng: biểu tượng trái, nhãn phải */
+.app{grid-template-columns:clamp(178px,20vw,205px) minmax(0,1fr)!important}
+.sidebar{width:auto!important;padding:18px 10px!important;gap:14px!important}
+.brand{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:9px!important;padding:2px 3px 14px!important;text-align:left!important}
+.brandmark{width:38px!important;height:38px!important;flex:0 0 38px!important;font-size:20px!important}
+.brand b{font-size:10px!important;line-height:1.25!important;overflow-wrap:normal!important}
+.brand small{font-size:9px!important;line-height:1.3!important}
+.nav{display:grid!important;gap:8px!important}
+.nav button{width:100%!important;min-width:0!important;min-height:50px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;padding:8px 9px!important;font-size:12px!important;line-height:1.3!important;text-align:left!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important}
+.nav button .ico{width:36px!important;height:36px!important;flex:0 0 36px!important;display:grid!important;place-items:center!important;font-size:24px!important;line-height:1!important;border-radius:10px!important}
+.side-note{font-size:9px!important;line-height:1.45!important;padding:9px!important}
+.app.nav-compact{grid-template-columns:78px minmax(0,1fr)!important}
+.app.nav-compact .sidebar{padding-left:8px!important;padding-right:8px!important}
+.app.nav-compact .nav button{justify-content:center!important;padding:7px 4px!important;font-size:0!important;gap:0!important}
+.app.nav-compact .nav button .ico{width:38px!important;height:38px!important;flex-basis:38px!important;font-size:25px!important}
+@media(max-width:760px){
+ .app{display:grid!important;grid-template-columns:clamp(148px,42vw,174px) minmax(0,1fr)!important;min-height:calc(100dvh - 76px)!important}
+ .sidebar{display:flex!important;position:sticky!important;top:0!important;align-self:start!important;height:100dvh!important;width:auto!important;padding:11px 7px!important;gap:10px!important;overflow-y:auto!important}
+ .brand{flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;padding:0 2px 10px!important;gap:7px!important}
+ .brandmark{width:30px!important;height:30px!important;flex-basis:30px!important;font-size:16px!important}
+ .brand b{font-size:9px!important}.brand small{font-size:8px!important}
+ .nav{gap:7px!important}
+ .nav button{min-height:46px!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:7px!important;padding:7px 5px!important;font-size:10.5px!important;line-height:1.22!important;text-align:left!important}
+ .nav button .ico{width:30px!important;height:30px!important;flex-basis:30px!important;font-size:21px!important}
+ .side-note{display:none!important}
+ .main{min-width:0!important;width:100%!important}.topbar{height:55px!important;padding:0 9px!important}.topbar h1{font-size:12px!important}.mobile-menu{display:none!important}
+ .top-actions{gap:4px!important}.top-actions .pill{display:none!important}.content{padding:13px 9px 30px!important}
+ .workbench{grid-template-columns:1fr!important;gap:10px!important}.workbench .card{min-height:unset!important;padding:12px!important}
+ .page-head{display:block!important}.page-head h2{font-size:18px!important}.page-head .btn-row{margin-top:10px!important}
+ .grid.cards{grid-template-columns:1fr 1fr!important;gap:8px!important}.grid.two{grid-template-columns:1fr!important}.card{padding:12px!important}.two-col,.ai-mini-grid{grid-template-columns:1fr!important}
+ .app.nav-compact{grid-template-columns:64px minmax(0,1fr)!important}.app.nav-compact .sidebar{width:64px!important}.app.nav-compact .brand{justify-content:center!important}.app.nav-compact .brand>div:last-child,.app.nav-compact .side-note{display:none!important}
+}
+@media(max-width:380px){
+ .app{grid-template-columns:146px minmax(0,1fr)!important}
+ .sidebar{padding-left:5px!important;padding-right:5px!important}
+ .nav button{gap:5px!important;padding-left:4px!important;padding-right:4px!important;font-size:9.5px!important}
+ .nav button .ico{width:27px!important;height:27px!important;flex-basis:27px!important;font-size:19px!important}
+}
+
+
+/* v2.4.3 — tinh chỉnh lần 2: thu cột trái khoảng 1/3, giữ icon trái + nhãn phải */
+.app{grid-template-columns:150px minmax(0,1fr)!important}
+.sidebar{width:auto!important;min-width:0!important;padding:16px 7px!important;gap:12px!important}
+.brand{gap:7px!important;padding:2px 2px 11px!important}
+.brandmark{width:30px!important;height:30px!important;flex:0 0 30px!important;font-size:16px!important}
+.brand b{font-size:9px!important;line-height:1.2!important}
+.brand small{font-size:8px!important;line-height:1.2!important}
+.nav{gap:6px!important}
+.nav button{width:100%!important;min-width:0!important;min-height:43px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:7px!important;padding:6px 5px!important;font-size:10px!important;line-height:1.2!important;text-align:left!important;white-space:normal!important;overflow-wrap:anywhere!important}
+.nav button .ico{width:29px!important;height:29px!important;flex:0 0 29px!important;display:grid!important;place-items:center!important;font-size:20px!important}
+.side-note{font-size:8px!important;padding:7px!important}
+.app.nav-compact{grid-template-columns:64px minmax(0,1fr)!important}
+.app.nav-compact .sidebar{padding-left:6px!important;padding-right:6px!important}
+.app.nav-compact .nav button{justify-content:center!important;padding:6px 2px!important;font-size:0!important;gap:0!important}
+.app.nav-compact .nav button .ico{width:36px!important;height:36px!important;flex-basis:36px!important;font-size:23px!important}
+@media(max-width:760px){
+ .app{display:grid!important;grid-template-columns:130px minmax(0,1fr)!important;min-height:calc(100dvh - 76px)!important}
+ .sidebar{display:flex!important;position:sticky!important;top:0!important;align-self:start!important;height:100dvh!important;width:auto!important;padding:10px 5px!important;gap:9px!important;overflow-y:auto!important}
+ .brand{gap:5px!important;padding:0 1px 8px!important}
+ .brandmark{width:26px!important;height:26px!important;flex-basis:26px!important;font-size:14px!important}
+ .brand b{font-size:8px!important}.brand small{font-size:7px!important}
+ .nav{gap:6px!important}
+ .nav button{min-height:41px!important;gap:5px!important;padding:6px 3px!important;font-size:9px!important;line-height:1.15!important}
+ .nav button .ico{width:25px!important;height:25px!important;flex-basis:25px!important;font-size:18px!important}
+ .side-note{display:none!important}
+ .main{min-width:0!important;width:100%!important}
+ .app.nav-compact{grid-template-columns:58px minmax(0,1fr)!important}
+ .app.nav-compact .sidebar{width:58px!important;padding-left:4px!important;padding-right:4px!important}
+ .app.nav-compact .brand{justify-content:center!important}
+ .app.nav-compact .brand>div:last-child{display:none!important}
+}
+@media(max-width:380px){
+ .app{grid-template-columns:118px minmax(0,1fr)!important}
+ .sidebar{padding-left:4px!important;padding-right:4px!important}
+ .nav button{gap:4px!important;padding-left:2px!important;padding-right:2px!important;font-size:8px!important}
+ .nav button .ico{width:23px!important;height:23px!important;flex-basis:23px!important;font-size:16px!important}
+}
+
+
+/* v2.4.4 — giảm tiếp 1/2 chiều rộng thanh trái; nhãn tự xuống 3–4 dòng */
+.app{grid-template-columns:76px minmax(0,1fr)!important}
+.sidebar{width:76px!important;min-width:0!important;padding:12px 4px!important;gap:9px!important}
+.sidebar .brand{justify-content:center!important;padding:0 0 8px!important}
+.sidebar .brand>div:last-child{display:none!important}
+.sidebar .brandmark{width:30px!important;height:30px!important;flex:0 0 30px!important}
+.nav{width:100%!important;gap:6px!important}
+.nav button{width:100%!important;min-width:0!important;min-height:58px!important;height:auto!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:4px!important;padding:6px 3px!important;font-size:8px!important;line-height:1.15!important;text-align:left!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important}
+.nav button .ico{width:21px!important;height:21px!important;flex:0 0 21px!important;display:grid!important;place-items:center!important;font-size:17px!important;line-height:1!important}
+.nav button{ text-wrap:pretty }
+.side-note{display:none!important}
+.app.nav-compact{grid-template-columns:54px minmax(0,1fr)!important}
+.app.nav-compact .sidebar{width:54px!important;padding-left:3px!important;padding-right:3px!important}
+.app.nav-compact .nav button{justify-content:center!important;padding:6px 2px!important;font-size:0!important;gap:0!important}
+.app.nav-compact .nav button .ico{width:32px!important;height:32px!important;flex-basis:32px!important;font-size:22px!important}
+@media(max-width:760px){
+ .app{grid-template-columns:68px minmax(0,1fr)!important;min-height:calc(100dvh - 76px)!important}
+ .sidebar{width:68px!important;padding:10px 3px!important;height:100dvh!important}
+ .nav button{min-height:58px!important;gap:3px!important;padding:5px 2px!important;font-size:7.5px!important;line-height:1.12!important}
+ .nav button .ico{width:20px!important;height:20px!important;flex-basis:20px!important;font-size:16px!important}
+ .app.nav-compact{grid-template-columns:52px minmax(0,1fr)!important}
+ .app.nav-compact .sidebar{width:52px!important}
+}
+@media(max-width:380px){
+ .app{grid-template-columns:64px minmax(0,1fr)!important}
+ .sidebar{width:64px!important;padding-left:2px!important;padding-right:2px!important}
+ .nav button{font-size:7px!important;padding-left:2px!important;padding-right:2px!important;gap:2px!important}
+ .nav button .ico{width:19px!important;height:19px!important;flex-basis:19px!important;font-size:15px!important}
+}
+
+
+/* TASKBAR LAYOUT 2.4.5: thanh chức năng ngang dưới tên ứng dụng, có thể kéo về cạnh trái */
+.app{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;min-height:calc(100dvh - 76px)!important}
+.sidebar{grid-row:1;grid-column:1;position:sticky!important;top:0!important;z-index:7;height:auto!important;width:100%!important;min-width:0!important;max-height:none!important;overflow:visible!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:10px!important;padding:8px 14px!important;border-radius:0!important;background:linear-gradient(100deg,#102b46,#1b527a 55%,#123653)!important;box-shadow:0 7px 18px #102b4625!important}
+.sidebar .brand{display:flex!important;align-items:center!important;flex:0 0 auto!important;padding:0 10px 0 0!important;border:0!important;border-right:1px solid #ffffff35!important;gap:7px!important}
+.sidebar .brandmark{width:30px!important;height:30px!important;flex:0 0 30px!important;font-size:16px!important}
+.sidebar .brand b{font-size:9px!important;white-space:nowrap!important}.sidebar .brand small{display:none!important}
+.sidebar .nav{display:flex!important;flex:1 1 auto!important;min-width:0!important;align-items:stretch!important;gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;padding:2px 2px 5px!important;scrollbar-width:thin!important}
+.sidebar .nav button{flex:0 0 auto!important;min-width:0!important;max-width:170px!important;min-height:42px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:7px!important;padding:7px 10px!important;font-size:11px!important;line-height:1.2!important;white-space:normal!important;text-align:left!important;border:1px solid #ffffff25!important;border-radius:10px!important;background:linear-gradient(145deg,#ffffff16,#ffffff08)!important;color:#eaf5ff!important}
+.sidebar .nav button .ico{width:25px!important;height:25px!important;flex:0 0 25px!important;font-size:18px!important}
+.sidebar .nav button.active{color:#123b5f!important;background:linear-gradient(135deg,#fff,#c9e7fc)!important;border-color:#fff!important}
+.sidebar .side-note{display:none!important}
+.main{grid-row:2;grid-column:1;min-width:0!important;width:100%!important}
+.topbar{position:sticky!important;top:0!important;z-index:6!important}
+#taskbarGrip{flex:0 0 28px;width:28px;height:36px;border:1px solid #ffffff35;border-radius:8px;background:#ffffff12;color:#eaf5ff;font-size:18px;cursor:grab;touch-action:none;display:grid;place-items:center}
+#taskbarGrip:active{cursor:grabbing}
+/* Kéo thanh về mép trái để khôi phục bố cục cột dọc */
+.app.nav-vertical{grid-template-columns:76px minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important}
+.app.nav-vertical .sidebar{grid-column:1;grid-row:1;position:sticky!important;top:0!important;height:100dvh!important;max-height:100dvh!important;flex-direction:column!important;align-items:stretch!important;padding:12px 4px!important;overflow-y:auto!important;overflow-x:hidden!important;border-radius:0!important}
+.app.nav-vertical .sidebar .brand{justify-content:center!important;padding:0 0 8px!important;border:0!important;border-bottom:1px solid #ffffff30!important}
+.app.nav-vertical .sidebar .brand>div:last-child{display:none!important}
+.app.nav-vertical .sidebar .nav{display:grid!important;flex:0 0 auto!important;overflow:visible!important;gap:6px!important;padding:2px 0!important}
+.app.nav-vertical .sidebar .nav button{max-width:none!important;min-height:48px!important;flex-direction:row!important;padding:7px 4px!important;gap:5px!important;font-size:9px!important;line-height:1.15!important}
+.app.nav-vertical .sidebar .nav button .ico{width:24px!important;height:24px!important;flex-basis:24px!important;font-size:17px!important}
+.app.nav-vertical .main{grid-column:2;grid-row:1}
+.app.nav-vertical .side-note{display:none!important}
+.app.nav-vertical #taskbarGrip{align-self:center}
+.app.nav-vertical .topbar{top:0!important}
+.app.nav-compact .sidebar .nav button{font-size:0!important;justify-content:center!important;gap:0!important}
+.app.nav-compact .sidebar .nav button .ico{width:28px!important;height:28px!important;flex-basis:28px!important;font-size:21px!important}
+@media(max-width:760px){
+ .app{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important}
+ .sidebar{position:sticky!important;top:0!important;width:100%!important;height:auto!important;max-height:none!important;display:flex!important;flex-direction:row!important;padding:6px 7px!important;gap:5px!important;overflow:visible!important}
+ .sidebar .brand{display:none!important}
+ .sidebar .nav{display:flex!important;overflow-x:auto!important;overflow-y:hidden!important;gap:5px!important}
+ .sidebar .nav button{flex:0 0 auto!important;max-width:125px!important;min-height:42px!important;padding:6px 8px!important;font-size:10px!important}
+ .sidebar .nav button .ico{width:22px!important;height:22px!important;flex-basis:22px!important;font-size:16px!important}
+ .main{grid-column:1!important;grid-row:2!important}
+ .app.nav-vertical{grid-template-columns:64px minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important}
+ .app.nav-vertical .sidebar{grid-column:1!important;grid-row:1!important;height:100dvh!important;max-height:100dvh!important;flex-direction:column!important;padding:9px 3px!important;overflow-y:auto!important}
+ .app.nav-vertical .sidebar .brand{display:flex!important}
+ .app.nav-vertical .sidebar .nav{display:grid!important;overflow:visible!important}
+ .app.nav-vertical .sidebar .nav button{max-width:none!important;min-height:46px!important;flex-direction:column!important;font-size:8px!important;padding:5px 2px!important}
+ .app.nav-vertical .sidebar .nav button .ico{width:22px!important;height:22px!important;flex-basis:22px!important}
+ .app.nav-vertical .main{grid-column:2!important;grid-row:1!important}
+}
+@media print{.sidebar,#taskbarGrip{display:none!important}.app,.app.nav-vertical{display:block!important}}
+
+
+/* RESPONSIVE TASKBAR 2.4.6: nút gọn, tự chia cột theo kích thước màn hình */
+.sidebar{height:auto!important;min-height:0!important;max-height:none!important;padding:6px clamp(6px,1.2vw,16px)!important;gap:6px!important;align-items:center!important}
+.sidebar .nav{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,112px),1fr))!important;grid-auto-rows:minmax(38px,auto)!important;align-items:stretch!important;gap:5px!important;overflow:visible!important;padding:2px!important}
+.sidebar .nav button{width:100%!important;max-width:none!important;min-width:0!important;min-height:38px!important;height:100%!important;padding:4px 6px!important;gap:5px!important;border-radius:8px!important;font-size:clamp(9px, .85vw, 11px)!important;line-height:1.12!important;overflow-wrap:anywhere!important}
+.sidebar .nav button .ico{width:21px!important;height:21px!important;flex:0 0 21px!important;font-size:16px!important}
+#taskbarGrip{width:25px!important;height:32px!important;flex-basis:25px!important}
+/* Dọc: giữ thanh chức năng ở cạnh trái, thu gọn nút để không chiếm màn hình */
+.app.nav-vertical .sidebar{width:76px!important;padding:7px 3px!important;gap:5px!important}
+.app.nav-vertical .sidebar .nav{grid-template-columns:minmax(0,1fr)!important;gap:4px!important}
+.app.nav-vertical .sidebar .nav button{min-height:42px!important;padding:4px 2px!important;gap:2px!important;font-size:8px!important;line-height:1.05!important}
+.app.nav-vertical .sidebar .nav button .ico{width:21px!important;height:21px!important;flex-basis:21px!important;font-size:15px!important}
+@media(max-width:600px) and (orientation:portrait){
+ .sidebar{padding:5px 5px!important;gap:4px!important}
+ .sidebar .nav{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-rows:minmax(36px,auto)!important;gap:4px!important}
+ .sidebar .nav button{min-height:36px!important;padding:3px 4px!important;gap:4px!important;font-size:9px!important;line-height:1.08!important}
+ .sidebar .nav button .ico{width:19px!important;height:19px!important;flex-basis:19px!important;font-size:14px!important}
+ #taskbarGrip{width:22px!important;height:29px!important;flex-basis:22px!important;font-size:15px!important}
+ .app.nav-vertical{grid-template-columns:58px minmax(0,1fr)!important}
+ .app.nav-vertical .sidebar{width:58px!important;padding:6px 2px!important}
+ .app.nav-vertical .sidebar .nav button{min-height:39px!important;font-size:7px!important}
+ .app.nav-vertical .sidebar .nav button .ico{width:19px!important;height:19px!important;flex-basis:19px!important}
+}
+@media(min-width:601px) and (max-width:1024px){
+ .sidebar .nav{grid-template-columns:repeat(auto-fit,minmax(125px,1fr))!important}
+ .sidebar .nav button{min-height:40px!important;font-size:10px!important;padding:4px 6px!important}
+}
+@media(orientation:landscape) and (max-height:500px){
+ .sidebar{padding:3px 6px!important}
+ .sidebar .nav{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;gap:4px!important}
+ .sidebar .nav button{flex:1 0 82px!important;max-width:145px!important;min-height:32px!important;height:32px!important;padding:3px 5px!important;font-size:9px!important}
+ .sidebar .nav button .ico{width:18px!important;height:18px!important;flex-basis:18px!important;font-size:13px!important}
+ #taskbarGrip{height:27px!important}
+}
+@media(min-width:1025px){
+ .sidebar .nav{grid-template-columns:repeat(auto-fit,minmax(135px,1fr))!important}
+ .sidebar .nav button{min-height:42px!important}
+}
+
+
+
+/* RESPONSIVE TASKBAR 2.4.7 — nút gọn, nhãn tự xuống dòng, tối đa 2 hàng */
+.sidebar .nav{
+  display:grid!important;
+  grid-template-columns:repeat(8,minmax(0,1fr))!important;
+  grid-auto-flow:row!important;
+  grid-auto-rows:minmax(38px,auto)!important;
+  flex:1 1 auto!important;
+  min-width:0!important;
+  width:100%!important;
+  gap:5px!important;
+  overflow:visible!important;
+  padding:2px!important;
+}
+.sidebar .nav button{
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  min-height:36px!important;
+  height:100%!important;
+  flex:initial!important;
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:5px!important;
+  padding:4px 6px!important;
+  font-size:clamp(8px,.72vw,10px)!important;
+  line-height:1.12!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+  text-align:left!important;
+}
+.sidebar .nav button .ico{
+  flex:0 0 19px!important;
+  width:19px!important;
+  height:19px!important;
+  font-size:15px!important;
+}
+/* Màn hình vừa và nhỏ: 4 cột x tối đa 2 hàng cho 8 chức năng */
+@media(max-width:1024px){
+  .sidebar .nav{grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+  .sidebar .nav button{font-size:clamp(8px,1.15vw,10px)!important;min-height:35px!important;padding:3px 5px!important;}
+}
+@media(max-width:600px){
+  .sidebar{width:100%!important;max-width:100%!important;padding:5px 6px!important;gap:4px!important;}
+  .sidebar .nav{grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-auto-rows:minmax(34px,auto)!important;gap:4px!important;}
+  .sidebar .nav button{min-height:34px!important;font-size:9px!important;padding:3px 4px!important;gap:3px!important;}
+  .sidebar .nav button .ico{flex-basis:17px!important;width:17px!important;height:17px!important;font-size:14px!important;}
+}
+/* Giữ thanh chức năng nằm ngang dưới tên ứng dụng ở mọi hướng màn hình */
+.app.nav-vertical{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;}
+.app.nav-vertical .sidebar{grid-column:1!important;grid-row:1!important;position:sticky!important;top:0!important;width:100%!important;height:auto!important;max-height:none!important;min-height:0!important;flex-direction:row!important;align-items:center!important;overflow:visible!important;padding:6px clamp(6px,1.2vw,16px)!important;}
+.app.nav-vertical .sidebar .brand{display:flex!important;justify-content:flex-start!important;flex:0 0 auto!important;border:0!important;border-right:1px solid #ffffff35!important;padding:0 8px 0 0!important;}
+.app.nav-vertical .sidebar .brand>div:last-child{display:block!important;}
+.app.nav-vertical .sidebar .nav{display:grid!important;grid-template-columns:repeat(8,minmax(0,1fr))!important;flex:1 1 auto!important;overflow:visible!important;}
+.app.nav-vertical .sidebar .nav button{flex-direction:row!important;min-height:36px!important;font-size:clamp(8px,.72vw,10px)!important;}
+.app.nav-vertical .main{grid-column:1!important;grid-row:2!important;}
+@media(max-width:1024px){.app.nav-vertical .sidebar .nav{grid-template-columns:repeat(4,minmax(0,1fr))!important;}}
+@media(max-width:760px){
+  .app{display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;}
+  .sidebar{position:sticky!important;top:0!important;width:100%!important;height:auto!important;max-height:none!important;display:flex!important;flex-direction:row!important;overflow:visible!important;}
+  .sidebar .nav{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;overflow:visible!important;}
+  .main{grid-column:1!important;grid-row:2!important;}
+  .app.nav-vertical{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;}
+  .app.nav-vertical .sidebar{grid-column:1!important;grid-row:1!important;height:auto!important;max-height:none!important;flex-direction:row!important;overflow:visible!important;}
+  .app.nav-vertical .sidebar .brand{display:flex!important;}
+  .app.nav-vertical .sidebar .brand>div:last-child{display:block!important;}
+  .app.nav-vertical .sidebar .nav{grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+  .app.nav-vertical .main{grid-column:1!important;grid-row:2!important;}
+}
+
+
+.gemini-modal{display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;padding:16px;overscroll-behavior:contain}.gemini-modal.open{display:flex}.gemini-modal-backdrop{position:absolute;inset:0;background:#102338a8;backdrop-filter:blur(5px)}.gemini-modal-panel{position:relative;z-index:2;width:min(520px,100%);max-height:85vh;max-height:85dvh;overflow:auto;background:#fff;border:1px solid #d5e1ec;border-radius:18px;padding:20px;box-shadow:0 24px 80px #10233855}.gemini-modal-panel h3{margin:0;font-size:17px}.gemini-modal-panel input{width:100%;min-height:44px}.gemini-modal-panel .btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.gemini-modal-panel .btn{min-height:40px}@media(max-width:600px){.gemini-modal-panel{padding:15px;border-radius:15px}.top-actions{gap:5px}.top-actions #connectAIButton{font-size:10px;padding:7px 9px;white-space:nowrap}}
+
+
+/* Legal library tabs and local document management */
+.law-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:17px}
+.law-tab{border:1px solid #d3dfeb;background:linear-gradient(145deg,#fff,#f0f5fa);color:#35516a;border-radius:11px;padding:12px 8px;font-weight:750;font-size:12px;box-shadow:0 3px 10px #163d5b0b}
+.law-tab.active{background:linear-gradient(145deg,#176ca8,#124b78);color:#fff;border-color:#176ca8;box-shadow:0 6px 15px #176ca833}
+.law-list-head{display:flex;align-items:center;justify-content:space-between;margin:16px 0 10px;color:#1c3a55}
+.law-source-row{margin:5px 0 12px}.law-add-tools{margin-top:16px;padding-top:13px;border-top:1px solid var(--line)}
+.law-add-panel{margin-top:14px;padding:16px;border:1px solid #cbdbea;border-radius:13px;background:linear-gradient(145deg,#f8fbfe,#eef5fb)}
+.law-add-panel .two-col{gap:12px}.law-empty-action{padding:17px;text-align:center;border:1px dashed #b8cbdc;border-radius:11px;margin-top:10px;color:var(--muted)}
+.law-empty-action p{margin:0 0 10px;font-size:12px}.law-search-row{margin-bottom:4px}
+@media(max-width:600px){.law-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.law-tab{padding:11px 5px;font-size:11px}.law-source-row a{flex:1 1 100%;text-align:center}.law-add-tools>*{flex:1 1 100%}.law-list-head{font-size:12px}}
+
+</style>
+</head>
+<body>
+<header class="app-brandbar">
+  <div class="app-brand-left"><div class="app-brand-emblem">VPĐK</div><div><strong>QUẢN LÝ ĐẤT ĐAI &amp; KỸ THUẬT ĐỊA CHÍNH</strong><span>TRUNG TÂM TRA CỨU · KIỂM TRA HỒ SƠ ĐẤT ĐAI · PHÚ THỌ</span></div></div>
+  <div class="app-brand-right"><span class="brand-status"><i></i> HỆ THỐNG HỖ TRỢ NGHIỆP VỤ</span><button class="brand-collapse" id="navCollapseBtn" type="button" aria-label="Thu gọn hoặc mở rộng thanh chức năng" title="Thu gọn / mở rộng thanh chức năng">☰</button></div>
+</header>
+<div class="app" id="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brandmark">☷</div><div><b>CHỨC NĂNG NGHIỆP VỤ</b><small>Chọn phân hệ làm việc</small></div></div>
+  <nav class="nav">
+    <button class="active" data-view="home"><span class="ico">⌂</span>Tổng quan</button>
+    <button data-view="laws"><span class="ico">▤</span>Văn bản pháp luật</button>
+    <button data-view="procedures"><span class="ico">☷</span>Thủ tục & thành phần hồ sơ</button>
+    <button data-view="deadline"><span class="ico">◷</span>Tính thời hạn giải quyết</button>
+    <button data-view="review"><span class="ico">✓</span>Kiểm tra tình huống hồ sơ</button>
+    <button data-view="ai"><span class="ico">✦</span>Trợ lý AI thẩm định</button>
+    <button data-view="workspace"><span class="ico">▣</span>Hồ sơ đang theo dõi</button>
+    <button data-view="settings"><span class="ico">⚙</span>Dữ liệu & thiết lập</button>
+  </nav>
+  <div class="side-note"><strong>Chế độ hoạt động</strong><br>Ứng dụng chạy tại trình duyệt. Dữ liệu ghi trên thiết bị hiện tại; không tự gửi hồ sơ lên máy chủ.<br><br><span id="storageState">Lưu trữ cục bộ</span></div>
+</aside>
+<main class="main">
+<header class="topbar"><div style="display:flex;align-items:center;gap:10px"><button class="btn mobile-menu" id="menuBtn">☰</button><h1 id="topTitle">Tổng quan nghiệp vụ</h1></div><div class="top-actions"><span class="pill">● Bản chạy cục bộ</span><button class="btn primary" id="connectAIButton" type="button">✦ KẾT NỐI AI</button><button class="btn" id="printBtn">In trang</button></div></header>
+<div class="content">
+<section class="view active" id="view-home">
+ <div class="page-head"><div><h2>Trung tâm tra cứu & kiểm tra hồ sơ đất đai</h2><p>Công cụ hỗ trợ nghiệp vụ, quản lý căn cứ và rà soát thông tin trước khi xử lý.</p></div><div class="btn-row"><button class="btn primary" data-go="review">＋ Tạo phiếu kiểm tra</button><button class="btn" data-go="laws">Tra cứu văn bản</button></div></div>
+
+ <div class="workbench">
+  <section class="card" aria-label="Tra cứu nhanh">
+   <div class="workbench-head"><div class="workbench-icon">⌕</div><div><h3>Tra cứu nghiệp vụ nhanh</h3><p>Tìm trong danh mục văn bản và nhóm thủ tục có sẵn trong ứng dụng</p></div></div>
+   <div class="field"><label for="deskSearch">Từ khóa tra cứu</label><input id="deskSearch" class="search" placeholder="Ví dụ: cấp đổi GCN, tách thửa, Điều 220..."></div>
+   <div class="two-col"><div class="field"><label for="deskSearchType">Phạm vi</label><select id="deskSearchType"><option value="all">Tất cả nội dung</option><option value="law">Văn bản pháp luật</option><option value="procedure">Nhóm thủ tục</option></select></div><div class="field" style="align-content:end"><button class="btn primary" id="deskSearchBtn">Tìm kiếm</button></div></div>
+   <div class="notice info">Kết quả là chỉ mục tra cứu trong ứng dụng, không thay thế việc mở văn bản gốc và kiểm tra hiệu lực.</div>
+   <div id="deskSearchResults" class="search-results"><div class="empty">Nhập từ khóa để bắt đầu tra cứu.</div></div>
+  </section>
+  <section class="card" aria-label="Trợ lý AI">
+   <div class="workbench-head"><div class="workbench-icon">✦</div><div><h3>Trợ lý AI thẩm định hồ sơ</h3><p>Phân tích dữ kiện, tài liệu, căn cứ và điểm còn thiếu</p></div></div>
+   <div class="ai-mini-grid">
+    <div class="field"><label for="deskAiTask">Yêu cầu</label><select id="deskAiTask"><option value="review">Rà soát hồ sơ</option><option value="legal">Phân tích vấn đề pháp lý</option><option value="return">Dự thảo nội dung yêu cầu bổ sung</option><option value="steps">Đề xuất trình tự xử lý</option></select></div>
+    <div class="field"><label for="deskAiType">Loại thủ tục</label><input id="deskAiType" placeholder="Ví dụ: cấp đổi GCN"></div>
+    <div class="field full"><label for="deskAiFacts">Tóm tắt dữ kiện và tài liệu</label><textarea id="deskAiFacts" rows="4" placeholder="Mô tả sự việc, mốc thời gian, hiện trạng và giấy tờ đã kiểm tra..."></textarea></div>
+    <div class="field full"><label for="deskAiQuestion">Câu hỏi cần tư vấn</label><textarea id="deskAiQuestion" rows="2" placeholder="Nêu rõ vấn đề cần xác định..."></textarea></div>
+   </div>
+   <div class="btn-row" style="margin:12px 0"><button class="btn primary" id="deskAiRun">✦ Phân tích hồ sơ</button><button class="btn" id="deskAiClear">Xóa</button><button class="btn soft" data-go="ai">Mở phân tích chuyên sâu →</button></div>
+   <div id="deskAiStatus" class="notice warn">Chưa kết nối Gemini. Bấm “KẾT NỐI AI” trên thanh tiêu đề để cấu hình lần đầu hoặc kiểm tra kết nối.</div>
+   <div id="deskAiResult" class="ai-mini-result">Kết quả tư vấn sẽ hiển thị tại đây.</div>
+  </section>
+ </div>
+ <div class="grid cards">
+  <div class="card stat"><div><small>Văn bản trong danh mục</small><strong id="statLaws">7</strong></div><div class="symbol">▤</div></div>
+  <div class="card stat"><div><small>Nhóm thủ tục tham khảo</small><strong id="statProcs">8</strong></div><div class="symbol">☷</div></div>
+  <div class="card stat"><div><small>Hồ sơ đã lưu trên máy</small><strong id="statCases">0</strong></div><div class="symbol">▣</div></div>
+  <div class="card stat"><div><small>Ngày hệ thống</small><strong id="today" style="font-size:17px">—</strong></div><div class="symbol">◷</div></div>
+ </div>
+ <div class="grid two" style="margin-top:16px">
+  <div class="card"><h3 class="section-title">Lưu ý cập nhật pháp lý</h3>
+   <div class="notice warn"><b>Không dùng dữ liệu cũ như kết luận pháp lý.</b><br>Ứng dụng ban đầu có nội dung tóm tắt sai/thiếu, đặc biệt phần Quyết định 22/2024/UBND và kết luận “đủ điều kiện” tự động. Bản nâng cấp đã loại bỏ kết luận tự động và gắn nhãn trạng thái xác minh cho từng nguồn.</div>
+   <div class="notice info">Đối với Phú Thọ, cần kiểm tra Quyết định 33/2026/QĐ-UBND về trình tự, thủ tục hành chính đất đai và Quyết định 2143/QĐ-UBND về công bố thủ tục hành chính. Liên kết văn bản được đặt tại mục Văn bản pháp luật.</div>
+   <h3 class="section-title" style="margin-top:18px">Quy trình rà soát gợi ý</h3>
+   <ol style="padding-left:19px;margin:0;color:#53677b;font-size:12px"><li>Xác định đúng loại thủ tục và thẩm quyền tiếp nhận.</li><li>Đối chiếu hồ sơ thực tế với thành phần hồ sơ theo thủ tục đang có hiệu lực.</li><li>Kiểm tra thông tin thửa đất, chủ thể, biến động, quy hoạch và tình trạng pháp lý.</li><li>Đối chiếu căn cứ pháp luật theo thời điểm phát sinh và thời điểm giải quyết.</li><li>Ghi nhận nội dung còn thiếu; chỉ kết luận sau khi xác minh nguồn và tài liệu.</li></ol>
+  </div>
+  <div class="card"><h3 class="section-title">Truy cập nhanh</h3><div class="doc-list">
+   <div class="doc"><div class="doc-top"><h3>Tính thời hạn giải quyết</h3><span class="tag">Công cụ</span></div><p>Tính ngày làm việc, loại trừ cuối tuần và ngày nghỉ do người dùng khai báo.</p><button class="btn soft" data-go="deadline">Mở công cụ →</button></div>
+   <div class="doc"><div class="doc-top"><h3>Kiểm tra tình huống hồ sơ</h3><span class="tag">Rà soát</span></div><p>Lập danh sách vấn đề cần xác minh; không thay thế thẩm định của cơ quan có thẩm quyền.</p><button class="btn soft" data-go="review">Mở phiếu kiểm tra →</button></div>
+   <div class="doc"><div class="doc-top"><h3>Danh mục văn bản</h3><span class="tag">Tra cứu</span></div><p>Truy cập nguồn chính thức và lưu ghi chú theo văn bản.</p><button class="btn soft" data-go="laws">Mở danh mục →</button></div>
+  </div></div>
+ </div>
+ <div class="footer">Phiên bản 2.5 · Thư viện văn bản pháp luật phân cấp bốn nhóm · Dữ liệu pháp lý trong ứng dụng là chỉ mục và hướng dẫn tra cứu, không phải cơ sở dữ liệu văn bản hợp nhất toàn văn.</div>
+</section>
+
+<section class="view" id="view-laws">
+ <div class="page-head"><div><h2>Danh mục văn bản pháp luật</h2><p>AI tìm kiếm trực tuyến, đối chiếu nguồn và lưu văn bản tìm được vào danh mục trên thiết bị.</p></div><div class="btn-row"><button class="btn primary" id="updateLawsAI" type="button">↻ Cập nhật văn bản bằng AI</button><button class="btn" id="exportLawNotes">Xuất ghi chú</button></div></div>
+ <div class="card" style="margin-bottom:14px;padding:13px 15px"><div id="lawUpdateStatus" class="notice info" style="margin:0">Chưa chạy cập nhật trong phiên này. Bấm “Cập nhật văn bản bằng AI” để tìm văn bản mới và rà soát văn bản còn hiệu lực.</div><div id="lawUpdateMeta" class="muted" style="font-size:11px;margin-top:8px">Dữ liệu cập nhật AI được lưu riêng trong trình duyệt và gộp vào danh mục; không ghi đè văn bản gốc có sẵn. Lưu ý: Google Search grounding có thể tính phí theo số lượt tìm kiếm tùy gói/dự án Gemini; ứng dụng không tự nâng cấp gói hoặc bật thanh toán.</div><div id="lawUpdateSources" style="font-size:12px;margin-top:8px"></div></div>
+ <div class="card law-library">
+  <div class="law-tabs" role="tablist" aria-label="Phân cấp văn bản pháp luật">
+   <button class="law-tab active" data-law-level="central" type="button">🏛️ Trung ương</button>
+   <button class="law-tab" data-law-level="province" type="button">🏢 Tỉnh</button>
+   <button class="law-tab" data-law-level="department" type="button">📚 Sở</button>
+   <button class="law-tab" data-law-level="commune" type="button">🏘️ Xã / phường</button>
+  </div>
+  <div class="two-col law-search-row"><div class="field"><label>Tìm kiếm trong danh mục</label><input id="lawSearch" class="search" placeholder="Số hiệu, tên văn bản, cơ quan, lĩnh vực..."></div><div class="field"><label>Loại văn bản</label><select id="lawTypeFilter"><option value="all">Tất cả loại văn bản</option><option>Luật</option><option>Nghị quyết</option><option>Nghị định</option><option>Thông tư</option><option>Quyết định</option><option>Chỉ thị</option><option>Văn bản hợp nhất</option><option>Công văn / hướng dẫn</option><option>Khác</option></select></div></div>
+  <div class="notice info">Danh mục nội bộ kết hợp với cổng tra cứu chính thức. Văn bản không có sẵn trong danh mục không có nghĩa là không tồn tại hoặc không còn hiệu lực. Luôn mở nguồn gốc để kiểm tra toàn văn, hiệu lực, sửa đổi và văn bản thay thế.</div>
+  <div class="law-source-row btn-row">
+   <a class="btn soft" href="https://phapluat.gov.vn/he-thong-van-ban-phap-luat" target="_blank" rel="noopener">CSDL quốc gia về pháp luật ↗</a>
+   <a class="btn soft" href="https://vbpl.moj.gov.vn/" target="_blank" rel="noopener">CSDL pháp luật Bộ Tư pháp ↗</a>
+   <a class="btn soft" href="https://vanban.chinhphu.vn/" target="_blank" rel="noopener">Cổng văn bản Chính phủ ↗</a>
+   <a class="btn soft" href="https://congbao.phutho.gov.vn/congbao/congbao.nsf/VanBan" target="_blank" rel="noopener">Tra cứu Công báo Phú Thọ ↗</a>
+   <a class="btn soft" href="https://sonnmt.phutho.gov.vn/he-thong-van-ban" target="_blank" rel="noopener">Hệ thống văn bản Sở NN&amp;MT ↗</a>
+  </div>
+  <div class="law-list-head"><b id="lawListTitle">Văn bản Trung ương</b><span id="lawCount" class="tag">0 văn bản</span></div>
+  <div class="doc-list" id="lawList"></div>
+  <div class="law-empty-action hidden" id="lawEmptyAction"><p>Chưa tìm thấy văn bản phù hợp trong danh mục đang lưu.</p><button class="btn primary" type="button" id="emptyAddLaw">＋ Bổ sung văn bản</button></div>
+  <div class="law-add-tools btn-row"><button class="btn primary" type="button" id="toggleAddLaw">＋ Bổ sung văn bản</button><button class="btn" type="button" id="exportLawData">Xuất danh mục JSON</button><button class="btn" type="button" id="importLawData">Nhập danh mục JSON</button><input id="importLawFile" type="file" accept=".json,application/json" class="hidden"></div>
+  <div id="lawAddPanel" class="law-add-panel hidden">
+   <h3 class="section-title">Bổ sung văn bản pháp luật</h3>
+   <p class="muted" style="font-size:12px">Nhập thông tin nhận diện và đường dẫn văn bản gốc. Văn bản được lưu trên trình duyệt của thiết bị này.</p>
+   <div class="two-col"><div class="field"><label>Cấp ban hành</label><select id="newLawLevel"><option value="central">Trung ương</option><option value="province">Tỉnh</option><option value="department">Sở</option><option value="commune">Xã / phường</option></select></div><div class="field"><label>Loại văn bản</label><select id="newLawType"><option>Luật</option><option>Nghị quyết</option><option>Nghị định</option><option>Thông tư</option><option>Quyết định</option><option>Chỉ thị</option><option>Văn bản hợp nhất</option><option>Công văn / hướng dẫn</option><option>Khác</option></select></div></div>
+   <div class="field"><label>Tên văn bản *</label><input id="newLawName" placeholder="Tên đầy đủ của văn bản"></div>
+   <div class="two-col"><div class="field"><label>Số, ký hiệu *</label><input id="newLawNumber" placeholder="Ví dụ: 101/2024/NĐ-CP"></div><div class="field"><label>Ngày ban hành</label><input id="newLawDate" type="date"></div></div>
+   <div class="two-col"><div class="field"><label>Cơ quan ban hành *</label><input id="newLawIssuer" placeholder="Cơ quan ban hành"></div><div class="field"><label>Tình trạng / hiệu lực</label><input id="newLawStatus" placeholder="Ví dụ: Còn hiệu lực / cần kiểm tra"></div></div>
+   <div class="field"><label>Lĩnh vực / nội dung tóm tắt</label><textarea id="newLawNote" rows="2" placeholder="Nội dung điều chỉnh, lĩnh vực đất đai liên quan..."></textarea></div>
+   <div class="field"><label>Đường dẫn văn bản gốc hoặc nguồn chính thức *</label><input id="newLawUrl" type="url" placeholder="https://..."></div>
+   <div class="btn-row"><button class="btn primary" type="button" id="saveNewLaw">Lưu văn bản</button><button class="btn" type="button" id="cancelAddLaw">Đóng</button></div>
+  </div>
+ </div>
+ <div class="footer">Lưu ý: chức năng cập nhật dùng Gemini kết hợp Google Search để tìm kiếm trực tuyến. AI chỉ tạo danh mục tham khảo từ nguồn tìm được; trạng thái “còn hiệu lực” chỉ được xác nhận khi nguồn tra cứu thể hiện rõ. Luôn mở văn bản gốc, lịch sử và văn bản liên quan để kiểm tra trước khi áp dụng. Dữ liệu lưu trên trình duyệt của thiết bị này.</div>
+</section>
+
+<section class="view" id="view-procedures">
+ <div class="page-head"><div><h2>Thủ tục & thành phần hồ sơ</h2><p>Danh mục nhóm nghiệp vụ để định hướng kiểm tra; không thay thế bộ thủ tục hành chính được công bố đang có hiệu lực.</p></div></div>
+ <div class="notice warn"><b>Lưu ý:</b> Không sử dụng các thời hạn cố định cũ (15/8/5/3 ngày) từ bản HTML ban đầu. Thời hạn thực tế phụ thuộc loại thủ tục, địa bàn, trường hợp cụ thể, quy định hiện hành và quyết định công bố TTHC của tỉnh.</div>
+ <div class="card"><div class="field"><label>Chọn nhóm thủ tục</label><select id="procedureSelect"></select></div><div id="procedureDetail"></div></div>
+</section>
+
+<section class="view" id="view-deadline">
+ <div class="page-head"><div><h2>Công cụ tính thời hạn</h2><p>Tính toán lịch làm việc theo số ngày người dùng nhập; không tự suy diễn thời hạn pháp luật.</p></div></div>
+ <div class="grid two">
+  <div class="card"><h3 class="section-title">Thông tin đầu vào</h3>
+   <div class="field"><label>Ngày bắt đầu tính</label><input type="date" id="startDate"></div>
+   <div class="two-col"><div class="field"><label>Số ngày làm việc</label><input type="number" min="0" max="1000" id="workDays" value="8"></div><div class="field"><label>Quy tắc ngày bắt đầu</label><select id="startRule"><option value="next">Ngày kế tiếp là ngày thứ nhất</option><option value="same">Tính cả ngày bắt đầu nếu là ngày làm việc</option></select></div></div>
+   <div class="field"><label>Ngày nghỉ bổ sung (mỗi ngày một dòng, định dạng YYYY-MM-DD)</label><textarea id="holidays" placeholder="2026-01-01&#10;2026-04-30&#10;2026-05-01"></textarea></div>
+   <div class="notice warn">Không có sẵn danh mục ngày nghỉ lễ hằng năm và ngày nghỉ bù. Hãy nhập đúng các ngày nghỉ áp dụng cho năm và địa phương cần tính. Không tự cộng “10 ngày miền núi”; chỉ cộng nếu văn bản hiện hành quy định cụ thể cho đúng thủ tục và trường hợp.</div>
+   <button class="btn primary" id="calcDeadline">Tính ngày dự kiến</button>
+  </div>
+  <div class="card"><h3 class="section-title">Kết quả tính lịch</h3><div id="deadlineResult" class="empty">Nhập thông tin và bấm “Tính ngày dự kiến”.</div><div class="footer">Kết quả là phép tính lịch theo dữ liệu nhập, không phải xác nhận thời hạn pháp lý hoặc ngày trả kết quả chính thức.</div></div>
+ </div>
+</section>
+
+<section class="view" id="view-review">
+ <div class="page-head"><div><h2>Phiếu kiểm tra tình huống hồ sơ</h2><p>Hỗ trợ cấu trúc hóa dữ kiện, xác định điểm còn thiếu và lập phiếu rà soát.</p></div><div class="btn-row"><button class="btn" id="clearReview">Làm mới</button><button class="btn primary" id="saveReview">Lưu phiếu</button></div></div>
+ <div class="grid two">
+  <div class="card"><h3 class="section-title">A. Thông tin tình huống</h3>
+   <div class="field"><label>Tên/mã hồ sơ (không nhập dữ liệu cá nhân nhạy cảm)</label><input id="caseName" placeholder="Ví dụ: HS-2026-001"></div>
+   <div class="field"><label>Loại thủ tục</label><select id="caseType"><option value="capdoi">Cấp đổi / cấp lại GCN</option><option value="chuyennhuong">Đăng ký biến động do chuyển quyền</option><option value="tachdia">Tách thửa / hợp thửa</option><option value="caplan dau">Đăng ký, cấp GCN lần đầu</option><option value="chuyenmucdich">Chuyển mục đích sử dụng đất</option><option value="khac">Trường hợp khác</option></select></div>
+   <div class="field"><label>Mô tả dữ kiện thực tế</label><textarea id="caseFacts" placeholder="Ghi rõ nguồn tài liệu, thời điểm, hiện trạng, nội dung yêu cầu..."></textarea></div>
+   <div class="field"><label>Giấy tờ/tài liệu đã kiểm tra</label><textarea id="caseDocs" placeholder="GCN, hợp đồng, trích lục, bản đồ, hồ sơ địa chính, quyết định..."></textarea></div>
+   <div class="field"><label>Vấn đề pháp lý đang cần xác định</label><textarea id="caseQuestion" placeholder="Nêu câu hỏi cụ thể, tránh chỉ ghi 'đủ điều kiện hay không'..."></textarea></div>
+  </div>
+  <div class="card"><h3 class="section-title">B. Danh sách kiểm tra</h3><p class="muted" style="font-size:11px;margin-top:-6px">Đánh dấu sau khi đã kiểm tra tài liệu thực tế. Mục không áp dụng có thể để trống.</p><div id="reviewChecks"></div>
+   <div class="field" style="margin-top:13px"><label>Nhận định / nội dung cần xác minh thêm</label><textarea id="caseAnalysis" placeholder="Ghi rõ điều khoản cần tra cứu, nội dung còn mâu thuẫn, cơ quan cần xác minh..."></textarea></div>
+   <div class="field"><label>Đề xuất bước xử lý tiếp theo</label><textarea id="caseNext" placeholder="Ví dụ: yêu cầu bổ sung tài liệu cụ thể; đối chiếu hồ sơ gốc; xin ý kiến cơ quan có thẩm quyền..."></textarea></div>
+  </div>
+ </div>
+ <div class="card" style="margin-top:16px"><h3 class="section-title">C. Phiếu rà soát có thể in / lưu</h3><div id="reviewOutput" class="notice info">Nhập dữ kiện và chọn “Tạo phiếu rà soát” để tổng hợp nội dung.</div><div class="btn-row"><button class="btn soft" id="makeReview">Tạo phiếu rà soát</button><button class="btn" id="printReview">In phiếu</button><button class="btn" id="downloadReview">Tải phiếu .txt</button></div></div>
+</section>
+
+
+<section class="view" id="view-ai">
+ <div class="page-head"><div><h2>Trợ lý AI thẩm định hồ sơ</h2><p>Phân tích dữ kiện, phát hiện điểm thiếu và đề xuất hướng xác minh theo cấu trúc nghiệp vụ.</p></div><span class="tag amber">Cần kiểm chứng bởi người xử lý</span></div>
+ <div class="notice warn"><b>Không phải kết luận hành chính.</b> AI chỉ hỗ trợ phân tích thông tin được nhập và nguồn người dùng cung cấp. AI không tự truy cập cơ sở dữ liệu pháp luật hoặc kiểm tra hiệu lực văn bản trực tuyến trong phiên bản này. Không nhập họ tên, số CCCD, địa chỉ cá nhân, số điện thoại hoặc tài liệu mật; hãy ẩn danh trước khi gửi.</div>
+ <div class="grid two">
+  <div class="card">
+   <h3 class="section-title">1. Dữ liệu đầu vào</h3>
+   <div class="field"><label>Loại yêu cầu thẩm định</label><select id="aiTask"><option value="Rà soát tổng thể hồ sơ">Rà soát tổng thể hồ sơ</option><option value="Kiểm tra thành phần hồ sơ">Kiểm tra thành phần hồ sơ</option><option value="Phân tích điều kiện pháp lý">Phân tích điều kiện pháp lý</option><option value="Xử lý vướng mắc / hồ sơ có mâu thuẫn">Xử lý vướng mắc / hồ sơ có mâu thuẫn</option><option value="Dự thảo phiếu hướng dẫn bổ sung hoặc trả hồ sơ">Dự thảo phiếu hướng dẫn bổ sung hoặc trả hồ sơ</option><option value="Phân tích thẩm quyền và trình tự">Phân tích thẩm quyền và trình tự</option></select></div>
+   <div class="field"><label>Loại thủ tục / tình huống</label><input id="aiType" placeholder="Ví dụ: cấp đổi GCN, chuyển nhượng, tách thửa..."></div>
+   <div class="field"><label>Dữ kiện và diễn biến hồ sơ</label><textarea id="aiFacts" rows="6" placeholder="Mô tả theo trình tự thời gian; nêu rõ dữ kiện nào lấy từ GCN, hồ sơ lưu, trích đo, xác minh thực địa..."></textarea></div>
+   <div class="field"><label>Tài liệu, giấy tờ đã có</label><textarea id="aiDocs" rows="4" placeholder="Liệt kê tên tài liệu, ngày lập, cơ quan ban hành; có thể dán trích đoạn đã ẩn danh..."></textarea></div>
+   <div class="field"><label>Câu hỏi trọng tâm cần AI phân tích</label><textarea id="aiQuestion" rows="3" placeholder="Nêu câu hỏi cụ thể cần trả lời..."></textarea></div>
+   <div class="field"><label>Căn cứ pháp luật / trích điều khoản người dùng cung cấp (nếu có)</label><textarea id="aiLaw" rows="5" placeholder="Dán nguyên văn điều khoản, số hiệu, ngày hiệu lực hoặc đường dẫn nguồn chính thức. Nếu không có, ghi 'chưa cung cấp'."></textarea></div>
+   <div class="btn-row"><button class="btn primary" id="runAI">✦ Phân tích hồ sơ</button><button class="btn" id="clearAI">Xóa nội dung</button></div>
+  </div>
+  <div class="card">
+   <h3 class="section-title">2. Kết quả phân tích</h3>
+   <div id="aiStatus" class="notice info">Chưa kết nối Gemini. Bấm “KẾT NỐI AI” trên thanh tiêu đề để cấu hình lần đầu hoặc kiểm tra kết nối.</div>
+   <div id="aiResult" class="muted" style="font-size:12px">Kết quả sẽ xuất hiện tại đây sau khi gửi yêu cầu.</div>
+   <div class="btn-row" style="margin-top:14px"><button class="btn" id="copyAI">Sao chép kết quả</button><button class="btn" id="downloadAI">Tải kết quả .txt</button></div>
+   <div class="footer">Đầu ra yêu cầu AI tách riêng: (1) dữ kiện đã biết; (2) vấn đề pháp lý; (3) căn cứ được cung cấp; (4) nội dung chưa xác minh; (5) phương án xử lý; (6) tài liệu cần bổ sung. Không chấp nhận trích dẫn điều khoản nếu AI không nêu được căn cứ nguồn.</div>
+  </div>
+ </div>
+</section>
+
+<section class="view" id="view-workspace">
+ <div class="page-head"><div><h2>Hồ sơ đang theo dõi</h2><p>Các phiếu đã lưu trong bộ nhớ trình duyệt trên thiết bị này.</p></div><div class="btn-row"><button class="btn" id="exportCases">Xuất dữ liệu JSON</button><button class="btn" id="importCasesBtn">Nhập JSON</button><input type="file" id="importCasesFile" accept=".json,application/json" class="hidden"></div></div>
+ <div class="card"><div id="caseList" class="doc-list"><div class="empty">Chưa có phiếu được lưu.</div></div></div>
+</section>
+
+<section class="view" id="view-settings">
+ <div class="page-head"><div><h2>Dữ liệu & thiết lập</h2><p>Quản lý dữ liệu cục bộ và cách sử dụng ứng dụng.</p></div></div>
+ <div class="grid two">
+  <div class="card"><h3 class="section-title">Quản lý dữ liệu</h3><p class="muted" style="font-size:12px">Dữ liệu lưu trong localStorage của trình duyệt, có thể mất nếu xóa dữ liệu trang web hoặc đổi trình duyệt/thiết bị. Nên xuất JSON định kỳ để sao lưu.</p><div class="btn-row"><button class="btn" id="backupBtn">Tải bản sao lưu JSON</button><button class="btn danger" id="clearDataBtn">Xóa toàn bộ dữ liệu đã lưu</button></div></div>
+  <div class="card"><h3 class="section-title">Giới hạn & lưu ý pháp lý</h3><ul style="padding-left:18px;font-size:12px;color:#53677b"><li>Không kết nối AI hoặc máy chủ pháp luật trong phiên bản này.</li><li>Không tự kết luận hồ sơ đủ/không đủ điều kiện.</li><li>Không tự cập nhật hiệu lực văn bản theo thời gian thực.</li><li>Không thay thế cơ sở dữ liệu quốc gia về văn bản pháp luật hoặc CSDL TTHC.</li><li>Không đưa thông tin định danh cá nhân hoặc tài liệu mật vào phiếu mẫu nếu không cần thiết.</li></ul></div>
+ </div>
+ <div class="card" style="margin-top:16px"><h3 class="section-title">Nguồn chính thức và mốc cập nhật</h3><p style="font-size:12px;color:#53677b">Danh mục liên kết được rà soát ngày 08/11/2026. Khi áp dụng, mở nguồn gốc và kiểm tra văn bản sửa đổi, bổ sung, thay thế, bãi bỏ và điều khoản chuyển tiếp.</p><div id="sourceList"></div></div>
+</section>
+</div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
+<div id="geminiKeyDialog" class="gemini-modal" aria-hidden="true">
+ <div class="gemini-modal-backdrop" data-close-gemini></div>
+ <section class="gemini-modal-panel" role="dialog" aria-modal="true" aria-labelledby="geminiDialogTitle">
+  <div class="doc-top"><h3 id="geminiDialogTitle">Kết nối Google Gemini</h3><button class="btn" type="button" data-close-gemini aria-label="Đóng">✕</button></div>
+  <p class="muted" style="font-size:12px">Nhập API key một lần trên thiết bị này. Ứng dụng lưu khóa trong bộ nhớ trình duyệt để lần sau chỉ cần bấm nút KẾT NỐI AI.</p>
+  <div class="field"><label for="geminiApiKeyInput">Gemini API key</label><input id="geminiApiKeyInput" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Dán API key tại đây"></div>
+  <div class="notice warn" style="font-size:11px">Khóa được lưu trong localStorage của trình duyệt, không được mã hóa và có thể bị người có quyền truy cập thiết bị/trình duyệt xem. Không gửi file HTML có chứa khóa (khóa không được ghi vào file). Không dùng hồ sơ có họ tên, CCCD, địa chỉ hoặc dữ liệu mật chưa ẩn danh.</div>
+  <div class="btn-row"><button class="btn primary" id="saveGeminiKeyButton" type="button">Lưu và kiểm tra kết nối</button><button class="btn" id="removeGeminiKeyButton" type="button">Xóa khóa đã lưu</button></div>
+  <div id="geminiDialogStatus" class="notice info" aria-live="polite">Model cố định: gemini-3.1-flash-lite. Không tự chuyển sang model khác.</div>
+ </section>
+</div>
+
+<script>
+"use strict";
+const LAW_DATA=[
+{id:"law133",name:"Luật Đất đai – Văn bản hợp nhất số 133/VBHN-VPQH",number:"133/VBHN-VPQH",date:"03/09/2025",level:"central",type:"Luật",issuer:"Văn phòng Quốc hội",status:"Nguồn chính thức",note:"Văn bản hợp nhất Luật Đất đai. Cần đọc cùng các văn bản sửa đổi, nghị quyết và quy định chuyển tiếp ban hành sau thời điểm hợp nhất.",url:"https://vanban.chinhphu.vn/?docid=215258&pageid=27160",source:"Cổng văn bản Chính phủ"},
+{id:"nd101",name:"Nghị định 101/2024/NĐ-CP",number:"101/2024/NĐ-CP",date:"29/07/2024",level:"central",type:"Nghị định",issuer:"Chính phủ",status:"Có văn bản sửa đổi/bổ sung",note:"Đăng ký đất đai, cấp GCN và hệ thống thông tin đất đai. Không dùng riêng bản gốc nếu đã có văn bản sửa đổi.",url:"https://vanban.chinhphu.vn/?docid=210791&pageid=27160",source:"Cổng văn bản Chính phủ"},
+{id:"nd226",name:"Nghị định 226/2025/NĐ-CP",number:"226/2025/NĐ-CP",date:"15/08/2025",level:"central",type:"Nghị định",issuer:"Chính phủ",status:"Văn bản sửa đổi",note:"Sửa đổi, bổ sung một số nghị định quy định chi tiết thi hành Luật Đất đai; cần đối chiếu điều khoản sửa đổi tương ứng.",url:"https://vanban.chinhphu.vn/?classid=1&docid=214955&pageid=27160&typegroupid=4",source:"Cổng văn bản Chính phủ"},
+{id:"vbhn46",name:"Văn bản hợp nhất 46/VBHN-BNNMT",number:"46/VBHN-BNNMT",date:"03/04/2026",level:"central",type:"Văn bản hợp nhất",issuer:"Bộ Nông nghiệp và Môi trường",status:"Văn bản hợp nhất",note:"Hợp nhất quy định chi tiết thi hành một số điều của Luật Đất đai; cần kiểm tra văn bản ban hành sau ngày hợp nhất.",url:"https://vanban.chinhphu.vn/default.aspx?docid=217546&pageid=27160",source:"Cổng văn bản Chính phủ"},
+{id:"nq254",name:"Nghị quyết 254/2025/QH15",number:"254/2025/QH15",date:"11/12/2025",level:"central",type:"Nghị quyết",issuer:"Quốc hội",status:"Cần đối chiếu",note:"Quy định một số cơ chế, chính sách tháo gỡ khó khăn, vướng mắc trong tổ chức thi hành Luật Đất đai.",url:"https://vanban.chinhphu.vn/",source:"Cổng văn bản Chính phủ"},
+{id:"nd49",name:"Nghị định 49/2026/NĐ-CP",number:"49/2026/NĐ-CP",date:"31/01/2026",level:"central",type:"Nghị định",issuer:"Chính phủ",status:"Cần đối chiếu",note:"Quy định chi tiết, hướng dẫn một số điều của Nghị quyết 254/2025/QH15; có nội dung ảnh hưởng thủ tục và cách xử lý hồ sơ.",url:"https://vanban.chinhphu.vn/?docid=216860&pageid=27160",source:"Cổng văn bản Chính phủ"},
+{id:"qd33",name:"Quyết định 33/2026/QĐ-UBND tỉnh Phú Thọ",number:"33/2026/QĐ-UBND",date:"29/06/2026",level:"province",type:"Quyết định",issuer:"UBND tỉnh Phú Thọ",status:"Văn bản địa phương trọng tâm",note:"Ban hành quy định trình tự, thủ tục hành chính về lĩnh vực đất đai trên địa bàn tỉnh Phú Thọ. Kiểm tra điều khoản hiệu lực, bãi bỏ và nội dung cụ thể trong bản gốc trước khi áp dụng.",url:"https://thuvienphapluat.vn/van-ban/bat-dong-san/Quyet-dinh-33-2026-QD-UBND-trinh-tu-thu-tuc-hanh-chinh-ve-linh-vuc-Dat-dai-Phu-Tho-713275.aspx",source:"Bản tra cứu; cần đối chiếu bản ký của tỉnh"},
+{id:"qd2143",name:"Quyết định 2143/QĐ-UBND tỉnh Phú Thọ",number:"2143/QĐ-UBND",date:"01/07/2026",level:"province",type:"Quyết định",issuer:"UBND tỉnh Phú Thọ",status:"Công bố TTHC - cần đối chiếu bản gốc",note:"Công bố thủ tục hành chính lĩnh vực đất đai thuộc thẩm quyền giải quyết của các cấp chính quyền trên địa bàn tỉnh. Dùng để đối chiếu mã TTHC, thành phần hồ sơ, thời hạn và cơ quan giải quyết.",url:"https://sonnmt.phutho.gov.vn/vi/thu-tuc-hanh-chinh/thu-tuc-hanh-chinh/quyet-dinh-ve-viec-cong-bo-thu-tuc-hanh-chinh-trong-linh-vuc?language_content_entity=vi",source:"Sở Nông nghiệp và Môi trường Phú Thọ"},
+{id:"vbhn90",name:"Văn bản hợp nhất 90/VBHN-BNNMT",number:"90/VBHN-BNNMT",date:"16/01/2026",level:"central",type:"Văn bản hợp nhất",issuer:"Bộ Nông nghiệp và Môi trường",status:"Văn bản hợp nhất - kiểm tra văn bản cập nhật",note:"Hợp nhất các Nghị định quy định chi tiết thi hành một số điều của Luật Đất đai; dùng để tra cứu nội dung hợp nhất và đối chiếu văn bản sửa đổi tiếp theo.",url:"https://xaydungchinhsach.chinhphu.vn/toan-van-van-ban-so-90-vbhn-bnnmt-quy-dinh-chi-tiet-thi-hanh-mot-so-dieu-cua-luat-dat-dai-119260108144635122.htm",source:"Cổng Thông tin điện tử Chính phủ"},
+{id:"vbhn51",name:"Văn bản hợp nhất 51/VBHN-BNNMT",number:"51/VBHN-BNNMT",date:"29/04/2026",level:"central",type:"Văn bản hợp nhất",issuer:"Bộ Nông nghiệp và Môi trường",status:"Văn bản hợp nhất - cần kiểm tra bản gốc",note:"Hợp nhất quy định về điều tra cơ bản đất đai, đăng ký, cấp Giấy chứng nhận và hệ thống thông tin đất đai; tích hợp các sửa đổi được nêu trong văn bản hợp nhất.",url:"https://thuvienphapluat.vn/van-ban/bat-dong-san/van-ban-hop-nhat-51-vbhn-bnnmt-2026-nghi-dinh-dieu-tra-co-ban-dat-dai-704194.aspx",source:"Nguồn tra cứu; đối chiếu bản ban hành chính thức"},
+{id:"qd14",name:"Quyết định 14/2026/QĐ-UBND tỉnh Phú Thọ",number:"14/2026/QĐ-UBND",date:"04/05/2026",level:"province",type:"Quyết định",issuer:"UBND tỉnh Phú Thọ",status:"Đang hiệu lực theo Công báo - cần theo dõi mốc hết hiệu lực",note:"Phân cấp một số nhiệm vụ, quyền hạn của UBND tỉnh trong lĩnh vực đất đai trên địa bàn tỉnh Phú Thọ. Công báo ghi hiệu lực từ 15/05/2026 và hết hiệu lực 28/02/2027.",url:"https://congbao.phutho.gov.vn/congbao/congbao.nsf/ThuocTinh?ParentUNID=D72938A8EEA0ABD647258DEE002FEAB4&openForm=",source:"Công báo tỉnh Phú Thọ"},
+{id:"qd116",name:"Quyết định 116/2025/QĐ-UBND tỉnh Phú Thọ",number:"116/2025/QĐ-UBND",date:"01/12/2025",level:"province",type:"Quyết định",issuer:"UBND tỉnh Phú Thọ",status:"Văn bản quy định cụ thể lĩnh vực đất đai - kiểm tra hiệu lực",note:"Quy định cụ thể một số điều của Luật Đất đai và một số nghị định trong lĩnh vực đất đai thuộc thẩm quyền UBND tỉnh Phú Thọ.",url:"https://thuvienphapluat.vn/van-ban/Bat-dong-san/Quyet-dinh-116-2025-QD-UBND-huong-dan-Luat-Dat-dai-va-Nghi-dinh-linh-vuc-dat-dai-Phu-Tho-684166.aspx",source:"Nguồn tra cứu; cần đối chiếu Công báo tỉnh"},
+{id:"qd80",name:"Quyết định 80/2026/QĐ-UBND tỉnh Phú Thọ",number:"80/2026/QĐ-UBND",date:"05/11/2026",level:"province",type:"Quyết định",issuer:"UBND tỉnh Phú Thọ",status:"Ban hành 05/11/2026; hiệu lực từ 15/11/2026",note:"Ban hành định mức kinh tế - kỹ thuật đo đạc lập bản đồ địa chính, đăng ký đất đai, tài sản gắn liền với đất, lập hồ sơ địa chính và cấp Giấy chứng nhận trên địa bàn tỉnh. Tại ngày 08/11/2026 chưa đến ngày hiệu lực theo Công báo.",url:"https://congbao.phutho.gov.vn/congbao/congbao.nsf/VanBan",source:"Công báo tỉnh Phú Thọ"}
+];
+const PROCEDURES=[
+{id:"first",name:"Đăng ký đất đai, cấp GCN lần đầu",desc:"Rà soát nguồn gốc, quá trình sử dụng, giấy tờ về quyền sử dụng đất, hiện trạng, quy hoạch và nghĩa vụ tài chính.",checks:["Đơn đăng ký theo mẫu hiện hành trong bộ TTHC","Giấy tờ về quyền sử dụng đất (nếu có), đối chiếu Điều 137–140 Luật Đất đai tùy trường hợp","Tài liệu về thời điểm bắt đầu và quá trình sử dụng đất","Giấy tờ nhân thân / đại diện / đồng sử dụng theo trường hợp","Trích đo hoặc tài liệu địa chính nếu thủ tục yêu cầu","Thông tin quy hoạch, tranh chấp, vi phạm và nghĩa vụ tài chính"]},
+{id:"transfer",name:"Đăng ký biến động do chuyển nhượng / tặng cho / thừa kế",desc:"Kiểm tra chủ thể, hợp đồng hoặc căn cứ nhận thừa kế, GCN gốc, tình trạng đăng ký và nghĩa vụ tài chính.",checks:["Đơn đăng ký biến động theo mẫu hiện hành","Hợp đồng hoặc văn bản làm căn cứ chuyển quyền hợp lệ","Bản gốc GCN hoặc tài liệu thay thế theo trường hợp pháp luật quy định","Kiểm tra người ký, đồng sở hữu, đại diện và tình trạng hôn nhân nếu liên quan","Kiểm tra hạn chế quyền, kê biên, tranh chấp và biến động đã đăng ký","Chứng từ / thông tin nghĩa vụ tài chính hoặc căn cứ miễn, giảm"]},
+{id:"exchange",name:"Cấp đổi / cấp lại / đính chính GCN",desc:"Phân biệt đúng căn cứ cấp đổi, cấp lại hoặc đính chính; xác định việc thu hồi, nộp bản gốc và xử lý trường hợp chỉ giải quyết một phần.",checks:["Đơn đề nghị đúng thủ tục và mẫu hiện hành","GCN đã cấp / tài liệu chứng minh mất hoặc nội dung cần đính chính","Đối chiếu hồ sơ cấp GCN trước đây, sổ cấp GCN và dữ liệu địa chính","Xác định có thay đổi ranh giới, diện tích, chủ thể hoặc thông tin thửa đất không","Kiểm tra điều kiện, trường hợp phải đo đạc / trích đo / xác minh","Xác định cách xử lý GCN gốc và phần quyền/thửa không thuộc phạm vi giải quyết"]},
+{id:"split",name:"Tách thửa / hợp thửa",desc:"Kiểm tra điều kiện theo Luật Đất đai, quy định chi tiết và quy định địa phương đang có hiệu lực; không sử dụng diện tích tối thiểu chưa xác minh.",checks:["Đơn đề nghị tách thửa / hợp thửa theo mẫu hiện hành","GCN và tình trạng pháp lý của thửa đất","Đối chiếu điều kiện tại Điều 220 Luật Đất đai và văn bản hướng dẫn hiện hành","Đối chiếu quy định diện tích, kích thước, lối đi và điều kiện địa phương","Kiểm tra quy hoạch, hành lang bảo vệ, tranh chấp, kê biên và hạn chế quyền","Bản vẽ/trích đo theo yêu cầu của thủ tục và quy định kỹ thuật"]},
+{id:"purpose",name:"Chuyển mục đích sử dụng đất",desc:"Xác định trường hợp có phải xin phép, căn cứ quy hoạch/kế hoạch, thẩm quyền, nghĩa vụ tài chính và hiện trạng sử dụng.",checks:["Đơn theo mẫu hiện hành","GCN và tài liệu pháp lý thửa đất","Xác định loại chuyển mục đích theo Điều 121 Luật Đất đai","Kiểm tra căn cứ quy hoạch/kế hoạch và điều kiện áp dụng","Xác định thẩm quyền quyết định và trình tự hiện hành","Kiểm tra hiện trạng, vi phạm và nghĩa vụ tài chính"]},
+{id:"mortgage",name:"Đăng ký / xóa đăng ký biện pháp bảo đảm",desc:"Đối chiếu hồ sơ đăng ký bảo đảm, thông tin bên bảo đảm, tài sản và yêu cầu của cơ quan đăng ký.",checks:["Phiếu yêu cầu đăng ký theo mẫu hiện hành","Hợp đồng / văn bản làm căn cứ đăng ký hoặc xóa đăng ký","GCN hoặc thông tin nhận diện tài sản bảo đảm","Kiểm tra chủ thể, người ký, đại diện và phạm vi tài sản","Kiểm tra tình trạng đăng ký hiện có và thứ tự ưu tiên nếu liên quan"]},
+{id:"correction",name:"Đăng ký thay đổi thông tin / biến động khác",desc:"Phân loại chính xác sự kiện biến động, tài liệu chứng minh và yêu cầu cập nhật hồ sơ địa chính.",checks:["Đơn đăng ký biến động theo thủ tục hiện hành","Tài liệu chứng minh sự kiện thay đổi","GCN hoặc dữ liệu địa chính cần cập nhật","Xác định thay đổi thuộc thông tin chủ thể, thửa đất hay quyền","Kiểm tra các chủ thể có quyền, nghĩa vụ liên quan","Kiểm tra điều kiện và nghĩa vụ tài chính nếu có"]},
+{id:"other",name:"Trường hợp khác",desc:"Sử dụng bộ kiểm tra tùy chỉnh; tra cứu đúng mã thủ tục và thành phần hồ sơ đang công bố.",checks:["Xác định đúng tên và mã thủ tục hành chính","Mở quyết định công bố TTHC hiện hành và biểu mẫu kèm theo","Xác định cơ quan tiếp nhận, cơ quan giải quyết và đầu ra","Đối chiếu tài liệu người nộp cung cấp với thành phần hồ sơ chính thức","Ghi nhận căn cứ pháp lý và các nội dung cần xác minh"]}
+];
+const REVIEW_ITEMS=[
+["Đúng chủ thể và thẩm quyền đại diện","Xác minh giấy tờ, đồng sử dụng, ủy quyền và người ký."],
+["Đúng đối tượng và loại thủ tục","Phân biệt cấp lần đầu, cấp đổi, cấp lại, đính chính, đăng ký biến động."],
+["Hồ sơ gốc và dữ liệu địa chính đã được đối chiếu","Không chỉ dựa vào bản chụp hoặc lời trình bày khi cần hồ sơ gốc."],
+["Nguồn gốc và quá trình sử dụng đất đã rõ","Ghi nhận tài liệu và mốc thời gian cụ thể."],
+["Hiện trạng, ranh giới, diện tích đã được kiểm tra","Đối chiếu bản đồ, trích đo, thực địa và hồ sơ lưu."],
+["Quy hoạch và hạn chế quyền đã được kiểm tra","Dùng thông tin chính thức, xác định thời điểm dữ liệu."],
+["Tranh chấp, kê biên, vi phạm đã được xác minh","Không mặc định không có chỉ vì hồ sơ không đề cập."],
+["Căn cứ pháp lý còn hiệu lực đã được đối chiếu","Kiểm tra sửa đổi, bổ sung, thay thế, bãi bỏ và chuyển tiếp."],
+["Thời hạn và thành phần hồ sơ lấy từ TTHC hiện hành","Đối chiếu mã thủ tục và quyết định công bố địa phương."],
+["Đã xác định nghĩa vụ tài chính / trường hợp miễn giảm","Không tự suy đoán số tiền hoặc nghĩa vụ."]
+];
+const STORE_KEY="dia_chinh_phu_tho_v2";
+let savedCases=[];
+function $(id){return document.getElementById(id)}
+function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2600)}
+function escapeHTML(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function loadStore(){try{const x=JSON.parse(localStorage.getItem(STORE_KEY)||"{}");savedCases=Array.isArray(x.cases)?x.cases:[]}catch(e){savedCases=[]}}
+function persist(){localStorage.setItem(STORE_KEY,JSON.stringify({cases:savedCases,updated:new Date().toISOString()}));updateStats()}
+function updateStats(){$("statCases").textContent=savedCases.length;$("statLaws").textContent=allLawData().length;$("statProcs").textContent=PROCEDURES.length}
+const TITLES={home:"Trung tâm tra cứu & tư vấn",ai:"Trợ lý AI thẩm định",laws:"Văn bản pháp luật",procedures:"Thủ tục & thành phần hồ sơ",deadline:"Tính thời hạn giải quyết",review:"Kiểm tra tình huống hồ sơ",workspace:"Hồ sơ đang theo dõi",settings:"Dữ liệu & thiết lập"};
+function go(view){const target=$("view-"+view);if(!target){toast("Chức năng đang được cập nhật");return}document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));target.classList.add("active");document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));$("topTitle").textContent=TITLES[view]||"Tra cứu";$("sidebar").classList.remove("open");if(view==="workspace")renderCases();if(view==="laws")renderLaws();window.scrollTo(0,0)}
+document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+$("menuBtn").addEventListener("click",()=>$("sidebar").classList.toggle("open"));
+$("navCollapseBtn").addEventListener("click",()=>$("app").classList.toggle("nav-compact"));
+$("printBtn").addEventListener("click",()=>window.print());
+let activeLawLevel="central";
+const LAW_LEVEL_NAMES={central:"Trung ương",province:"Tỉnh Phú Thọ",department:"Sở",commune:"Xã / phường"};
+function readCustomLaws(){try{const a=JSON.parse(localStorage.getItem("landlaw_custom_docs_v1")||"[]");return Array.isArray(a)?a:[]}catch(e){return []}}
+function readAILaws(){try{const a=JSON.parse(localStorage.getItem("landlaw_ai_docs_v1")||"[]");return Array.isArray(a)?a:[]}catch(e){return []}}
+function allLawData(){return LAW_DATA.concat(readCustomLaws(),readAILaws())}
+function lawKey(d){return String(d.number||"").trim().toLocaleLowerCase("vi")+"|"+String(d.level||"")}
+function officialLawSource(url){try{const h=new URL(url).hostname.toLowerCase();return /(^|\.)(gov\.vn|moj\.gov\.vn|vbpl\.vn|phapluat\.gov\.vn|chinhphu\.vn|phutho\.gov\.vn|congbao\.phutho\.gov\.vn|sonnmt\.phutho\.gov\.vn)$/.test(h)||h==="vbpl.moj.gov.vn"}catch(e){return false}}
+function lawDateISO(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function lawUpdateStatus(message,kind="info"){$("lawUpdateStatus").className="notice "+kind;$ ("lawUpdateStatus").textContent=message}
+function parseLawAIJson(raw){let t=String(raw||"").trim().replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"");const a=t.indexOf("{");const b=t.lastIndexOf("}");if(a<0||b<=a)throw new Error("AI không trả về JSON danh mục hợp lệ.");const obj=JSON.parse(t.slice(a,b+1));if(!obj||!Array.isArray(obj.documents))throw new Error("Phản hồi AI thiếu danh sách documents.");return obj}
+async function updateLawsWithAI(){
+ const btn=$("updateLawsAI");if(btn.disabled)return;
+ if(!getGeminiKey()){lawUpdateStatus("Chưa kết nối Gemini AI. Hãy bấm KẾT NỐI AI trên thanh tiêu đề, lưu API key và thử lại.","warn");return}
+ if(!confirm("Bắt đầu tìm kiếm trực tuyến bằng Gemini + Google Search? Tính năng grounding có thể phát sinh phí theo số lượt tìm kiếm tùy gói/dự án Google AI của bạn. Ứng dụng không tự nâng cấp gói hoặc bật thanh toán. Bạn có muốn tiếp tục?"))return;
+ btn.disabled=true;btn.textContent="ĐANG TÌM KIẾM...";lawUpdateStatus("Đang yêu cầu Gemini tìm kiếm Google theo thời gian thực, ưu tiên CSDL quốc gia về pháp luật, CSDL Bộ Tư pháp, Cổng văn bản Chính phủ, Công báo Phú Thọ và cơ quan chuyên môn. Quá trình có thể mất khoảng 1 phút.","info");$("lawUpdateSources").textContent="";
+ const today=lawDateISO();
+ const prompt=`Hôm nay là ${today}. Hãy thực hiện tìm kiếm web trực tiếp bằng Google Search grounding, không chỉ dựa vào kiến thức đã học. Nhiệm vụ: lập danh mục văn bản pháp luật Việt Nam còn hiệu lực hoặc có liên quan trực tiếp đến nghiệp vụ đất đai, đăng ký đất đai, cấp/đổi/cấp lại Giấy chứng nhận, hồ sơ địa chính, đo đạc bản đồ địa chính, thu hồi đất, bồi thường, giao đất, cho thuê đất, chuyển mục đích, tách/hợp thửa, giá đất, tài chính đất đai, xử phạt vi phạm và thủ tục hành chính.
+Phạm vi bắt buộc: (1) Trung ương: luật, nghị quyết Quốc hội/UBTVQH, nghị định, quyết định, thông tư, văn bản hợp nhất, văn bản hướng dẫn/công văn có nguồn xác thực; (2) tỉnh Phú Thọ: nghị quyết HĐND, quyết định UBND và văn bản liên quan còn áp dụng sau sắp xếp đơn vị hành chính; (3) Sở Nông nghiệp và Môi trường Phú Thọ: quy trình, hướng dẫn, thông báo, quyết định và văn bản chuyên môn có nguồn công khai; (4) xã/phường thuộc Phú Thọ: văn bản quy phạm pháp luật hoặc văn bản công khai của HĐND/UBND cấp xã có liên quan trực tiếp. Không tự tạo văn bản cấp xã nếu không tìm thấy.
+Ưu tiên và tìm sâu trên các nguồn chính thức: phapluat.gov.vn, vbpl.moj.gov.vn, vbpl.vn, vanban.chinhphu.vn, chinhphu.vn, congbao.phutho.gov.vn, phutho.gov.vn, sonnmt.phutho.gov.vn và cổng thông tin chính thức của cơ quan ban hành. Có thể dùng nguồn tra cứu thứ cấp để phát hiện văn bản nhưng phải ghi rõ là nguồn thứ cấp và không xác nhận hiệu lực nếu chưa có nguồn chính thức.
+Chỉ đưa văn bản có căn cứ nhận diện được: số/ký hiệu, tên hoặc trích yếu, cơ quan, ngày ban hành nếu tìm được, URL nguồn cụ thể. Tìm cả văn bản sửa đổi, bổ sung, thay thế, bãi bỏ, đình chỉ và văn bản chuyển tiếp. Không được gán “Còn hiệu lực” chỉ vì trang tìm kiếm không nói đã hết hiệu lực. Nếu trạng thái không hiển thị rõ, dùng “Chưa xác minh hiệu lực”. Văn bản hợp nhất không tự động thay thế văn bản gốc; ghi rõ tính chất.
+Trả về CHỈ JSON hợp lệ, không Markdown, theo cấu trúc: {"checked_at":"${today}","summary":"...","documents":[{"level":"central|province|department|commune","type":"Luật|Nghị quyết|Nghị định|Thông tư|Quyết định|Chỉ thị|Văn bản hợp nhất|Công văn / hướng dẫn|Khác","name":"...","number":"...","date":"YYYY-MM-DD hoặc chuỗi ngày tìm được","issuer":"...","status":"Còn hiệu lực|Hết hiệu lực|Một phần hết hiệu lực|Chưa xác minh hiệu lực|Văn bản sửa đổi|Văn bản hợp nhất","validity_basis":"...","note":"Tóm tắt ngắn phạm vi liên quan đất đai và mối liên hệ sửa đổi/thay thế nếu có","url":"https://...","source":"Tên nguồn","official_source":true}}],"search_notes":["..." ]}. Tối đa 60 văn bản quan trọng, không lặp số hiệu cùng cấp. Mỗi văn bản phải có URL cụ thể. Không có kết quả thì documents là [].`;
+ try{
+  const response=await geminiFetch(GEMINI_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":getGeminiKey()},body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],tools:[{google_search:{}}],generationConfig:{temperature:0.1,maxOutputTokens:8192}})},90000);
+  let data={};try{data=await response.json()}catch(_){throw new Error("Không đọc được phản hồi từ Gemini.")};if(!response.ok)throw new Error(geminiErrorMessage(response.status,data?.error?.message||""));
+  const candidate=(data.candidates||[]).find(c=>c.content&&Array.isArray(c.content.parts));const raw=(candidate?.content?.parts||[]).map(p=>p.text||"").join("\n");if(!raw)throw new Error("Gemini không trả về danh mục. Có thể Google Search grounding chưa được hỗ trợ cho model hoặc yêu cầu bị giới hạn.");
+  const result=parseLawAIJson(raw);const found=[];const seen=new Set();
+  for(const x of result.documents){if(!x||!x.name||!x.number||!x.url||!x.level)continue;let u;try{u=new URL(String(x.url));if(!["http:","https:"].includes(u.protocol))continue}catch(_){continue}if(!["central","province","department","commune"].includes(x.level))continue;const d={id:"ai_"+String(x.number).replace(/[^a-zA-Z0-9_-]/g,"_")+"_"+x.level,name:String(x.name).slice(0,500),number:String(x.number).slice(0,100),date:String(x.date||""),level:x.level,type:String(x.type||"Khác"),issuer:String(x.issuer||"Chưa rõ cơ quan ban hành"),status:String(x.status||"Chưa xác minh hiệu lực"),validity_basis:String(x.validity_basis||""),note:String(x.note||"").slice(0,1600),url:u.href,source:String(x.source||u.hostname),official_source:officialLawSource(u.href),source_verified:!!x.official_source&&officialLawSource(u.href),updated_at:new Date().toISOString(),source_kind:"AI Google Search"};const k=lawKey(d);if(seen.has(k))continue;seen.add(k);found.push(d)}
+  if(!found.length)throw new Error("Tìm kiếm đã chạy nhưng không có bản ghi đủ số hiệu, cấp ban hành và đường dẫn nguồn để lưu. Không thay đổi danh mục hiện tại.");
+  const previous=readAILaws();const base=LAW_DATA.concat(readCustomLaws());const existing=new Set(base.map(lawKey));const merged=new Map(previous.filter(d=>!existing.has(lawKey(d))).map(d=>[lawKey(d),d]));let added=0,updated=0,skipped=0;
+  for(const d of found){if(existing.has(lawKey(d))){skipped++;continue}if(merged.has(lawKey(d)))updated++;else added++;merged.set(lawKey(d),d)}
+  const saved=Array.from(merged.values());localStorage.setItem("landlaw_ai_docs_v1",JSON.stringify(saved));localStorage.setItem("landlaw_ai_last_update_v1",JSON.stringify({at:new Date().toISOString(),checked_at:result.checked_at||today,summary:String(result.summary||""),search_notes:Array.isArray(result.search_notes)?result.search_notes:[],count:found.length}));
+  renderLaws();updateStats();const verified=found.filter(d=>d.source_verified&&d.status==="Còn hiệu lực").length;lawUpdateStatus("Cập nhật hoàn tất: tìm thấy "+found.length+" văn bản; thêm mới "+added+", cập nhật "+updated+", trùng với danh mục gốc "+skipped+". Có "+verified+" văn bản được đánh dấu còn hiệu lực và có nguồn chính thức; các văn bản khác cần kiểm tra thủ công.","success");$("lawUpdateMeta").textContent="Lần tìm kiếm: "+new Date().toLocaleString("vi-VN")+" · Tổng văn bản AI đã lưu: "+saved.length+" · Dữ liệu nằm trên trình duyệt thiết bị này.";
+  const urls=[];for(const d of found){if(!urls.some(z=>z.url===d.url))urls.push({url:d.url,label:d.source||new URL(d.url).hostname})}$("lawUpdateSources").innerHTML="Nguồn được AI dẫn: "+urls.slice(0,12).map(z=>`<a href="${escapeHTML(z.url)}" target="_blank" rel="noopener">${escapeHTML(z.label)} ↗</a>`).join(" · ");toast("Đã lưu "+found.length+" văn bản tìm được");
+ }catch(err){lawUpdateStatus("Không cập nhật được: "+err.message+". Danh mục hiện tại được giữ nguyên, không xóa dữ liệu cũ.","danger")}
+ finally{btn.disabled=false;btn.textContent="↻ Cập nhật văn bản bằng AI"}
+}
+
+function renderLaws(){
+ const q=$("lawSearch").value.trim().toLocaleLowerCase("vi"),type=$("lawTypeFilter").value;
+ const list=allLawData().filter(d=>d.level===activeLawLevel&&(type==="all"||d.type===type)&&[d.name,d.number,d.note,d.issuer,d.status,d.type].join(" ").toLocaleLowerCase("vi").includes(q));
+ $("lawListTitle").textContent="Văn bản "+LAW_LEVEL_NAMES[activeLawLevel];$("lawCount").textContent=list.length+" văn bản";
+ $("lawList").innerHTML=list.map(d=>`<article class="doc"><div class="doc-top"><h3>${escapeHTML(d.name)}</h3><span class="tag ${d.level==="central"?"green":"amber"}">${escapeHTML(LAW_LEVEL_NAMES[d.level]||d.level)}</span></div><div class="doc-meta"><span class="tag">${escapeHTML(d.type||"Chưa phân loại")}</span><span class="tag">${escapeHTML(d.number)}</span><span class="tag">${escapeHTML(d.date||"Chưa rõ ngày")}</span><span class="tag amber">${escapeHTML(d.source_kind==="AI Google Search"&&!d.source_verified&&d.status==="Còn hiệu lực"?"Chưa xác minh hiệu lực":d.status||"Chưa xác minh hiệu lực")}</span></div><p><b>Cơ quan:</b> ${escapeHTML(d.issuer)} · ${escapeHTML(d.note)}${d.validity_basis?`<br><b>Căn cứ tình trạng:</b> ${escapeHTML(d.validity_basis)}`:""}${d.source_kind==="AI Google Search"&&!d.source_verified?"<br><b>Lưu ý:</b> Nguồn chưa được xác nhận là cổng chính thức; cần kiểm tra bản gốc.":""}</p><div class="btn-row"><a href="${escapeHTML(d.url)}" target="_blank" rel="noopener">Mở nguồn văn bản ↗</a><button class="btn" data-note="${escapeHTML(d.id)}">Ghi chú</button></div><div class="field hidden" id="note-${escapeHTML(d.id)}"><label>Ghi chú của bạn</label><textarea data-law-note="${escapeHTML(d.id)}" rows="2" placeholder="Ghi điều khoản, hiệu lực, nội dung cần đối chiếu..."></textarea><button class="btn soft" data-save-note="${escapeHTML(d.id)}">Lưu ghi chú</button></div></article>`).join("")||`<div class="empty">Không có văn bản phù hợp trong danh mục nội bộ ở nhóm này.${activeLawLevel==="department"?' <a href="https://sonnmt.phutho.gov.vn/he-thong-van-ban" target="_blank" rel="noopener">Mở hệ thống văn bản của Sở ↗</a>':activeLawLevel==="commune"?' Có thể bổ sung văn bản do UBND/HĐND xã ban hành bằng nút bên dưới hoặc tra cứu Công báo tỉnh.':' Mở cổng nguồn chính thức ở phía trên để tìm tiếp.'}</div>`;
+ $("lawEmptyAction").classList.toggle("hidden",list.length>0);
+ document.querySelectorAll("[data-note]").forEach(b=>b.onclick=()=>{$("note-"+b.dataset.note).classList.toggle("hidden");const n=readNotes()[b.dataset.note];const el=document.querySelector(`[data-law-note="${b.dataset.note}"]`);if(el)el.value=n||""});
+ document.querySelectorAll("[data-save-note]").forEach(b=>b.onclick=()=>{const notes=readNotes();notes[b.dataset.saveNote]=document.querySelector(`[data-law-note="${b.dataset.saveNote}"]`).value;localStorage.setItem("landlaw_notes_v2",JSON.stringify(notes));toast("Đã lưu ghi chú")});
+}
+document.querySelectorAll("[data-law-level]").forEach(b=>b.addEventListener("click",()=>{activeLawLevel=b.dataset.lawLevel;document.querySelectorAll("[data-law-level]").forEach(x=>x.classList.toggle("active",x===b));renderLaws()}));
+$("lawSearch").addEventListener("input",renderLaws);$("lawTypeFilter").addEventListener("change",renderLaws);
+$("updateLawsAI").addEventListener("click",updateLawsWithAI);
+try{const last=JSON.parse(localStorage.getItem("landlaw_ai_last_update_v1")||"null");if(last&&last.at){$("lawUpdateMeta").textContent="Lần cập nhật gần nhất: "+new Date(last.at).toLocaleString("vi-VN")+" · Tổng văn bản AI đã lưu: "+readAILaws().length+" · Bấm cập nhật để tìm văn bản mới."}}catch(_){}
+$("toggleAddLaw").onclick=()=>$("lawAddPanel").classList.toggle("hidden");$("emptyAddLaw").onclick=()=>{$("lawAddPanel").classList.remove("hidden");$("newLawLevel").value=activeLawLevel;$("lawAddPanel").scrollIntoView({behavior:"smooth",block:"start"})};$("cancelAddLaw").onclick=()=>$("lawAddPanel").classList.add("hidden");
+$("saveNewLaw").onclick=()=>{const d={id:"custom_"+Date.now(),level:$("newLawLevel").value,type:$("newLawType").value,name:$("newLawName").value.trim(),number:$("newLawNumber").value.trim(),date:$("newLawDate").value,issuer:$("newLawIssuer").value.trim(),status:$("newLawStatus").value.trim()||"Chưa xác minh hiệu lực",note:$("newLawNote").value.trim(),url:$("newLawUrl").value.trim(),source:"Người dùng bổ sung"};if(!d.name||!d.number||!d.issuer||!d.url){toast("Vui lòng nhập đủ tên, số ký hiệu, cơ quan và đường dẫn nguồn");return}try{const u=new URL(d.url);if(!["http:","https:"].includes(u.protocol))throw Error()}catch(e){toast("Đường dẫn nguồn phải bắt đầu bằng http:// hoặc https://");return}const a=readCustomLaws();a.unshift(d);localStorage.setItem("landlaw_custom_docs_v1",JSON.stringify(a));activeLawLevel=d.level;document.querySelectorAll("[data-law-level]").forEach(b=>b.classList.toggle("active",b.dataset.lawLevel===activeLawLevel));$("lawSearch").value="";$("lawTypeFilter").value="all";$("lawAddPanel").classList.add("hidden");["newLawName","newLawNumber","newLawDate","newLawIssuer","newLawStatus","newLawNote","newLawUrl"].forEach(id=>$(id).value="");renderLaws();toast("Đã bổ sung văn bản vào danh mục trên thiết bị này")};
+$("exportLawData").onclick=()=>download("danh_muc_van_ban_phap_luat.json",JSON.stringify({version:2,exported:new Date().toISOString(),documents:readCustomLaws().concat(readAILaws())},null,2),"application/json");
+$("importLawData").onclick=()=>$("importLawFile").click();$("importLawFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text()),a=Array.isArray(x)?x:x.documents;if(!Array.isArray(a))throw Error("Không tìm thấy mảng documents");const current=readCustomLaws(),ids=new Set(current.map(d=>d.number+"|"+d.level));let added=0;a.forEach(d=>{if(d&&d.name&&d.number&&d.level&&d.url&&!ids.has(d.number+"|"+d.level)){current.push(d);ids.add(d.number+"|"+d.level);added++}});localStorage.setItem("landlaw_custom_docs_v1",JSON.stringify(current));renderLaws();toast("Đã nhập "+added+" văn bản mới")}catch(err){alert("Không nhập được danh mục: "+err.message)}e.target.value=""};
+function readNotes(){try{return JSON.parse(localStorage.getItem("landlaw_notes_v2")||"{}")}catch(e){return {}}}
+// Đã loại bỏ listener lawFilter cũ vì phần tử này không còn tồn tại trong giao diện.
+
+$("exportLawNotes").onclick=()=>download("ghi_chu_van_ban.json",JSON.stringify(readNotes(),null,2),"application/json");
+function renderProcedures(){ $("procedureSelect").innerHTML=PROCEDURES.map(p=>`<option value="${p.id}">${escapeHTML(p.name)}</option>`).join("");showProcedure()}
+function showProcedure(){const p=PROCEDURES.find(x=>x.id===$("procedureSelect").value)||PROCEDURES[0];$("procedureDetail").innerHTML=`<h3 class="section-title">${escapeHTML(p.name)}</h3><p class="muted" style="font-size:12px">${escapeHTML(p.desc)}</p><div class="notice info">Danh sách dưới đây là danh sách rà soát nghiệp vụ tham khảo, không khẳng định đây là thành phần hồ sơ pháp định đầy đủ. Phải đối chiếu thủ tục cụ thể tại Quyết định 2143/QĐ-UBND và các văn bản cập nhật.</div><h4 style="font-size:12px;margin:16px 0 5px">Danh sách kiểm tra</h4>${p.checks.map((c,i)=>`<label class="checkline"><input type="checkbox"><span>${i+1}. ${escapeHTML(c)}</span></label>`).join("")}<div class="btn-row" style="margin-top:13px"><button class="btn" id="resetProcChecks">Bỏ chọn</button><a class="btn soft" href="${LAW_DATA.find(x=>x.id==="qd2143").url}" target="_blank" rel="noopener">Mở quyết định công bố TTHC ↗</a></div>`;$("resetProcChecks").onclick=()=>document.querySelectorAll("#procedureDetail input").forEach(x=>x.checked=false)}
+$("procedureSelect").addEventListener("change",showProcedure);
+function setupDeadline(){const now=new Date();$("startDate").value=[now.getFullYear(),String(now.getMonth()+1).padStart(2,"0"),String(now.getDate()).padStart(2,"0")].join("-")}
+function calcDeadline(){const raw=$("startDate").value,n=Number($("workDays").value),rule=$("startRule").value;if(!raw||!Number.isInteger(n)||n<0){toast("Kiểm tra ngày bắt đầu và số ngày làm việc");return}const holidays=new Set($("holidays").value.split(/\r?\n/).map(x=>x.trim()).filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)));let d=new Date(raw+"T12:00:00");let count=0;if(rule==="same"&&d.getDay()!==0&&d.getDay()!==6&&!holidays.has(raw))count++;let guard=0;while(count<n&&guard<4000){d.setDate(d.getDate()+1);guard++;const iso=[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");if(d.getDay()!==0&&d.getDay()!==6&&!holidays.has(iso))count++}const fmt=d.toLocaleDateString("vi-VN",{weekday:"long",day:"2-digit",month:"2-digit",year:"numeric"});$("deadlineResult").innerHTML=`<div class="notice success">Ngày dự kiến theo lịch nhập</div><div class="kpi">${escapeHTML(fmt)}</div><p style="font-size:12px;color:#53677b">Đã tính ${n} ngày làm việc. Cuối tuần và ${holidays.size} ngày nghỉ do người dùng nhập được loại trừ.</p><p style="font-size:11px;color:#8a5b10">Lưu ý: Kết quả chỉ là phép tính lịch, không xác nhận thời hạn luật định. Kiểm tra thời điểm bắt đầu tính, thời gian không tính vào thời hạn và ngoại lệ theo đúng TTHC.</p>`}
+$("calcDeadline").addEventListener("click",calcDeadline);
+function renderReviewChecks(){$("reviewChecks").innerHTML=REVIEW_ITEMS.map((it,i)=>`<label class="checkline"><input type="checkbox" data-review="${i}"><span><b>${escapeHTML(it[0])}</b><span class="sub">${escapeHTML(it[1])}</span></span></label>`).join("")}
+function getReview(){return {name:$("caseName").value.trim(),type:$("caseType").selectedOptions[0].text,facts:$("caseFacts").value.trim(),docs:$("caseDocs").value.trim(),question:$("caseQuestion").value.trim(),checks:REVIEW_ITEMS.map((it,i)=>({label:it[0],checked:!!document.querySelector(`[data-review="${i}"]`)?.checked})),analysis:$("caseAnalysis").value.trim(),next:$("caseNext").value.trim(),created:new Date().toISOString()}}
+function makeReview(){const c=getReview();const checked=c.checks.filter(x=>x.checked).length;const unchecked=c.checks.length-checked;const html=`<h3>PHIẾU RÀ SOÁT HỒ SƠ · ${escapeHTML(c.name||"Chưa đặt mã")}</h3><p><b>Loại thủ tục:</b> ${escapeHTML(c.type)}</p><p><b>Dữ kiện:</b><br>${escapeHTML(c.facts||"Chưa nhập").replace(/\n/g,"<br>")}</p><p><b>Tài liệu đã kiểm tra:</b><br>${escapeHTML(c.docs||"Chưa nhập").replace(/\n/g,"<br>")}</p><p><b>Vấn đề cần xác định:</b><br>${escapeHTML(c.question||"Chưa nhập").replace(/\n/g,"<br>")}</p><p><b>Danh sách kiểm tra:</b> ${checked} mục đã đánh dấu; ${unchecked} mục chưa đánh dấu.</p><ul>${c.checks.map(x=>`<li>${x.checked?"☑":"☐"} ${escapeHTML(x.label)}</li>`).join("")}</ul><p><b>Nhận định / nội dung cần xác minh:</b><br>${escapeHTML(c.analysis||"Chưa nhập").replace(/\n/g,"<br>")}</p><p><b>Bước xử lý tiếp theo:</b><br>${escapeHTML(c.next||"Chưa nhập").replace(/\n/g,"<br>")}</p><div class="notice warn">Phiếu này là công cụ ghi nhận và rà soát. Không phải kết luận đủ/không đủ điều kiện, quyết định hành chính hoặc văn bản trả hồ sơ.</div>`;$("reviewOutput").innerHTML=html;return c}
+$("makeReview").onclick=makeReview;
+$("clearReview").onclick=()=>{["caseName","caseFacts","caseDocs","caseQuestion","caseAnalysis","caseNext"].forEach(id=>$(id).value="");$("caseType").selectedIndex=0;document.querySelectorAll("[data-review]").forEach(x=>x.checked=false);$("reviewOutput").textContent="Đã làm mới phiếu."};
+$("saveReview").onclick=()=>{const c=makeReview();if(!c.name){toast("Hãy nhập mã hoặc tên hồ sơ");return}const existing=savedCases.findIndex(x=>x.name===c.name);if(existing>=0)savedCases[existing]=c;else savedCases.unshift(c);persist();toast("Đã lưu phiếu trên thiết bị")};
+$("printReview").onclick=()=>{makeReview();window.print()};
+$("downloadReview").onclick=()=>{const c=makeReview();download((c.name||"phieu_ra_soat").replace(/[^\w\-]+/g,"_")+".txt",reviewText(c),"text/plain;charset=utf-8")};
+function reviewText(c){return `PHIẾU RÀ SOÁT HỒ SƠ\nMã hồ sơ: ${c.name}\nLoại thủ tục: ${c.type}\n\nDỮ KIỆN:\n${c.facts}\n\nTÀI LIỆU:\n${c.docs}\n\nVẤN ĐỀ:\n${c.question}\n\nKIỂM TRA:\n${c.checks.map(x=>(x.checked?"[x] ":"[ ] ")+x.label).join("\n")}\n\nNHẬN ĐỊNH:\n${c.analysis}\n\nBƯỚC TIẾP THEO:\n${c.next}\n\nPhiếu hỗ trợ rà soát, không phải kết luận pháp lý.`}
+function renderCases(){$("caseList").innerHTML=savedCases.map((c,i)=>`<article class="doc"><div class="doc-top"><h3>${escapeHTML(c.name)}</h3><span class="tag">${escapeHTML(c.type)}</span></div><p>${escapeHTML((c.facts||"").slice(0,220))}</p><div class="btn-row"><button class="btn soft" data-open-case="${i}">Xem / tải phiếu</button><button class="btn danger" data-delete-case="${i}">Xóa</button></div></article>`).join("")||'<div class="empty">Chưa có phiếu được lưu.</div>';document.querySelectorAll("[data-open-case]").forEach(b=>b.onclick=()=>{const c=savedCases[+b.dataset.openCase];download((c.name||"phieu")+".txt",reviewText(c),"text/plain;charset=utf-8")});document.querySelectorAll("[data-delete-case]").forEach(b=>b.onclick=()=>{if(confirm("Xóa phiếu này khỏi bộ nhớ trình duyệt?")){savedCases.splice(+b.dataset.deleteCase,1);persist();renderCases()}})}
+function download(filename,content,type){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);toast("Đã tạo tệp tải xuống")}
+function exportAll(){return {version:2,exported:new Date().toISOString(),cases:savedCases,lawNotes:readNotes()}}
+$("exportCases").onclick=$("backupBtn").onclick=()=>download("sao_luu_dia_chinh_phu_tho.json",JSON.stringify(exportAll(),null,2),"application/json");
+$("importCasesBtn").onclick=()=>$("importCasesFile").click();
+$("importCasesFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());const arr=Array.isArray(x)?x:x.cases;if(!Array.isArray(arr))throw Error("Không thấy danh sách cases");if(!confirm("Nhập và ghép "+arr.length+" phiếu vào dữ liệu hiện tại?"))return;arr.forEach(c=>{if(c&&typeof c==="object"&&c.name){const i=savedCases.findIndex(z=>z.name===c.name);if(i>=0)savedCases[i]=c;else savedCases.push(c)}});if(x.lawNotes)localStorage.setItem("landlaw_notes_v2",JSON.stringify(x.lawNotes));persist();renderCases();toast("Đã nhập dữ liệu")}catch(err){alert("Tệp JSON không hợp lệ: "+err.message)}e.target.value=""};
+$("clearDataBtn").onclick=()=>{if(confirm("Xóa toàn bộ phiếu đã lưu và ghi chú văn bản trên trình duyệt này? Không thể hoàn tác.")){savedCases=[];localStorage.removeItem(STORE_KEY);localStorage.removeItem("landlaw_notes_v2");persist();renderCases();toast("Đã xóa dữ liệu cục bộ")}};
+$("sourceList").innerHTML=LAW_DATA.map(d=>`<div class="checkline"><span>•</span><span><b>${escapeHTML(d.number)}</b> — ${escapeHTML(d.name)}<span class="sub"><a href="${d.url}" target="_blank" rel="noopener">${escapeHTML(d.source)} ↗</a></span></span></div>`).join("");
+$("exportLawNotes").addEventListener("click",()=>download("ghi_chu_van_ban.json",JSON.stringify(readNotes(),null,2),"application/json"));
+
+const GEMINI_MODEL="gemini-3.1-flash-lite";
+const GEMINI_KEY_STORE="phutho_gemini_api_key_v1";
+const GEMINI_ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/"+GEMINI_MODEL+":generateContent";
+function getGeminiKey(){try{return localStorage.getItem(GEMINI_KEY_STORE)||""}catch(_){return ""}}
+async function geminiFetch(url,options,timeoutMs=15000){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),timeoutMs);try{return await fetch(url,{...options,signal:controller.signal})}catch(err){if(err&&err.name==="AbortError")throw new Error("Quá thời gian chờ Google Gemini ("+Math.round(timeoutMs/1000)+" giây). Hãy thử lại khi mạng ổn định.");throw new Error("Không kết nối được Google Gemini: "+(err&&err.message?err.message:"lỗi mạng"))}finally{clearTimeout(timer)}}
+function showGeminiDialog(){const d=$("geminiKeyDialog");d.classList.add("open");d.setAttribute("aria-hidden","false");$("geminiApiKeyInput").value=getGeminiKey();$("geminiDialogStatus").className="notice info";$("geminiDialogStatus").textContent=getGeminiKey()?"Đã có khóa lưu trên thiết bị. Bấm nút để kiểm tra lại.":"Nhập API key để cấu hình lần đầu. Model được khóa cố định, không tự đổi model.";setTimeout(()=>$ ("geminiApiKeyInput").focus(),50)}
+function hideGeminiDialog(){const d=$("geminiKeyDialog");d.classList.remove("open");d.setAttribute("aria-hidden","true")}
+function geminiErrorMessage(status,detail){if(status===400)return "Yêu cầu không hợp lệ hoặc API key/model chưa được chấp nhận. "+detail;if(status===401||status===403)return "API key không hợp lệ hoặc chưa có quyền dùng Gemini API. Kiểm tra khóa trong Google AI Studio.";if(status===404)return "Không tìm thấy model "+GEMINI_MODEL+" cho khóa/dự án này. Ứng dụng không tự chuyển model.";if(status===429)return "Gemini đã hết hạn mức hoặc vượt giới hạn tốc độ Free Tier. Hãy chờ hạn mức được làm mới; ứng dụng không chuyển sang gói trả phí.";if(status>=500)return "Máy chủ Google đang gặp sự cố (HTTP "+status+"). Thử lại sau.";return "Gemini trả lỗi HTTP "+status+". "+detail}
+async function geminiGenerate(payload){const key=getGeminiKey();if(!key)throw new Error("Chưa cấu hình API key. Bấm KẾT NỐI AI trên thanh tiêu đề.");const prompt=["Bạn là trợ lý AI hỗ trợ nghiệp vụ quản lý đất đai tại Việt Nam, tập trung địa bàn Phú Thọ.","Trả lời bằng tiếng Việt, có cấu trúc rõ ràng.","Không bịa số hiệu, điều khoản, ngày hiệu lực hoặc nội dung văn bản. Nếu chưa có nguồn để xác minh, phải nói rõ là chưa xác minh.","Phân biệt dữ kiện người dùng cung cấp, nhận định, căn cứ pháp luật đã được cung cấp và nội dung cần kiểm tra thêm.","Không đưa ra kết luận hành chính thay cơ quan có thẩm quyền. Nêu phương án và rủi ro khi dữ kiện chưa đầy đủ.","Yêu cầu: "+(payload.task||"Rà soát hồ sơ"),"Loại thủ tục/tình huống: "+(payload.type||"Chưa nêu"),"Dữ kiện: "+(payload.facts||"Chưa cung cấp"),"Tài liệu: "+(payload.documents||"Chưa cung cấp"),"Câu hỏi trọng tâm: "+(payload.question||"Chưa nêu"),"Căn cứ pháp luật/ngồn người dùng cung cấp: "+(payload.legal_sources||"Chưa cung cấp")].join("\n\n");
+ const response=await geminiFetch(GEMINI_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":key},body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:4096}})});
+ let data={};try{data=await response.json()}catch(_){throw new Error("Google Gemini trả về dữ liệu không đọc được.")};if(!response.ok){const detail=data?.error?.message||"";throw new Error(geminiErrorMessage(response.status,detail))};const answer=(data.candidates||[]).flatMap(c=>c.content?.parts||[]).map(p=>p.text||"").join("\n").trim();if(!answer)throw new Error("Gemini không trả về nội dung văn bản. Có thể yêu cầu bị chặn hoặc không có candidate.");return answer}
+async function testGeminiConnection(keyOverride){const key=keyOverride||getGeminiKey();if(!key)throw new Error("Chưa có API key.");const response=await geminiFetch(GEMINI_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":key},body:JSON.stringify({contents:[{role:"user",parts:[{text:"Reply with exactly: GEMINI_CONNECTED"}]}],generationConfig:{temperature:0,maxOutputTokens:12}})});let data={};try{data=await response.json()}catch(_){throw new Error("Không đọc được phản hồi từ Google Gemini.")};if(!response.ok)throw new Error(geminiErrorMessage(response.status,data?.error?.message||""));const text=(data.candidates||[]).flatMap(c=>c.content?.parts||[]).map(p=>p.text||"").join("").trim();if(!text)throw new Error("API đã phản hồi nhưng không có nội dung kiểm tra.");return true}
+function setConnectButton(connected){const b=$("connectAIButton");if(!b)return;b.textContent=connected?"✓ ĐÃ KẾT NỐI AI":"✦ KẾT NỐI AI";b.classList.toggle("soft",connected);b.classList.toggle("primary",!connected)}
+$("connectAIButton").addEventListener("click",async()=>{const key=getGeminiKey();if(!key){showGeminiDialog();return}const b=$("connectAIButton");b.disabled=true;b.textContent="ĐANG KIỂM TRA...";try{await testGeminiConnection();setConnectButton(true);$("geminiDialogStatus").className="notice success";$("geminiDialogStatus").textContent="Kết nối Gemini thành công · "+GEMINI_MODEL;setAIStatus("Đã kết nối Gemini thành công. Có thể sử dụng các chức năng phân tích.","success");$("deskAiStatus").className="notice success";$("deskAiStatus").textContent="Đã kết nối Gemini thành công. Có thể sử dụng trợ lý AI.";toast("Đã kết nối Gemini")}catch(err){setConnectButton(false);setAIStatus("Kết nối AI chưa thành công: "+err.message,"danger");$("deskAiStatus").className="notice danger";$("deskAiStatus").textContent="Kết nối AI chưa thành công: "+err.message;showGeminiDialog();$("geminiDialogStatus").className="notice danger";$("geminiDialogStatus").textContent=err.message}finally{b.disabled=false;if(getGeminiKey()&&b.textContent==="ĐANG KIỂM TRA...")setConnectButton(false)}});
+$("saveGeminiKeyButton").addEventListener("click",async()=>{const key=$("geminiApiKeyInput").value.trim();if(!key){$("geminiDialogStatus").className="notice warn";$("geminiDialogStatus").textContent="Bạn chưa nhập API key.";return}const b=$("saveGeminiKeyButton");b.disabled=true;b.textContent="ĐANG LƯU VÀ KIỂM TRA...";let saved=false;try{localStorage.setItem(GEMINI_KEY_STORE,key);saved=true;$("geminiDialogStatus").className="notice info";$("geminiDialogStatus").textContent="Đã lưu khóa trên thiết bị. Đang kiểm tra kết nối (tối đa 15 giây)...";await testGeminiConnection(key);setConnectButton(true);$("geminiDialogStatus").className="notice success";$("geminiDialogStatus").textContent="Kết nối thành công. Khóa đã lưu trên thiết bị này.";setAIStatus("Đã kết nối Gemini thành công. Có thể sử dụng các chức năng phân tích.","success");$("deskAiStatus").className="notice success";$("deskAiStatus").textContent="Đã kết nối Gemini thành công. Có thể sử dụng trợ lý AI.";toast("Đã lưu cấu hình và kết nối Gemini");setTimeout(hideGeminiDialog,900)}catch(err){setConnectButton(false);$("geminiDialogStatus").className=saved?"notice warn":"notice danger";$("geminiDialogStatus").textContent=(saved?"Khóa đã được lưu, nhưng chưa kiểm tra kết nối thành công. ":"Không lưu được khóa. ")+err.message+" Bạn vẫn có thể đóng cửa sổ và thử lại sau.";if(saved)toast("Đã lưu API key; kết nối chưa xác nhận")}finally{b.disabled=false;b.textContent="Lưu và kiểm tra kết nối"}});
+$("removeGeminiKeyButton").addEventListener("click",()=>{try{localStorage.removeItem(GEMINI_KEY_STORE)}catch(_){}$("geminiApiKeyInput").value="";setConnectButton(false);$("geminiDialogStatus").className="notice info";$("geminiDialogStatus").textContent="Đã xóa khóa Gemini khỏi bộ nhớ trình duyệt của thiết bị này.";toast("Đã xóa API key")});
+document.querySelectorAll("[data-close-gemini]").forEach(el=>el.addEventListener("click",hideGeminiDialog));
+window.addEventListener("keydown",e=>{if(e.key==="Escape")hideGeminiDialog()});
+if(getGeminiKey())setConnectButton(false);
+
+let lastAIResult="";
+function setAIStatus(message,kind="info"){$("aiStatus").className="notice "+kind;$("aiStatus").textContent=message}
+$("runAI").addEventListener("click",async()=>{
+ const payload={task:$("aiTask").value,type:$("aiType").value.trim(),facts:$("aiFacts").value.trim(),documents:$("aiDocs").value.trim(),question:$("aiQuestion").value.trim(),legal_sources:$("aiLaw").value.trim()};
+ if(!payload.facts&&!payload.documents&&!payload.question){toast("Nhập dữ kiện hoặc câu hỏi trước khi phân tích");return}
+ if(!payload.question){toast("Hãy nhập câu hỏi trọng tâm");return}
+ const btn=$("runAI");btn.disabled=true;btn.textContent="Đang phân tích...";
+ $("aiResult").textContent="Đang gửi nội dung trực tiếp đến Google Gemini. Không đóng trang trong lúc xử lý.";
+ setAIStatus("Đang kết nối Google Gemini...","info");
+ try{
+  lastAIResult=await geminiGenerate(payload);
+  $("aiResult").innerHTML='<div style="white-space:pre-wrap;line-height:1.7;color:#172638;font-size:13px"></div>';
+  $("aiResult").firstChild.textContent=lastAIResult;
+  setAIStatus("Phân tích hoàn tất. Hãy kiểm tra lại từng căn cứ pháp luật và dữ kiện trước khi sử dụng.","success");
+ }catch(err){
+  setAIStatus("Chưa phân tích được: "+err.message+" · Kiểm tra máy chủ, API key và kết nối Internet.","danger");
+  $("aiResult").textContent="Không có kết quả. Nội dung nhập vẫn còn trên biểu mẫu để bạn thử lại.";
+ }finally{btn.disabled=false;btn.textContent="✦ Phân tích hồ sơ"}
+});
+$("clearAI").onclick=()=>{["aiType","aiFacts","aiDocs","aiQuestion","aiLaw"].forEach(id=>$(id).value="");$("aiTask").selectedIndex=0;$("aiResult").textContent="Kết quả sẽ xuất hiện tại đây sau khi gửi yêu cầu.";lastAIResult="";setAIStatus("Đã xóa nội dung biểu mẫu.","info")};
+$("copyAI").onclick=()=>{if(!lastAIResult){toast("Chưa có kết quả để sao chép");return}if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(lastAIResult).then(()=>toast("Đã sao chép kết quả")).catch(()=>fallbackCopy(lastAIResult))}else fallbackCopy(lastAIResult)};
+function fallbackCopy(value){const box=document.createElement("textarea");box.value=value;box.style.position="fixed";box.style.opacity="0";document.body.appendChild(box);box.select();try{document.execCommand("copy");toast("Đã sao chép kết quả")}catch(e){toast("Không thể sao chép tự động trên trình duyệt này")}box.remove()}
+$("downloadAI").onclick=()=>{if(!lastAIResult){toast("Chưa có kết quả để tải");return}download("ket_qua_AI_tham_dinh.txt",lastAIResult,"text/plain;charset=utf-8")};
+
+
+function runDeskSearch(){
+ const q=$("deskSearch").value.trim().toLocaleLowerCase("vi");
+ const scope=$("deskSearchType").value;
+ const host=$("deskSearchResults");
+ if(!q){host.innerHTML='<div class="empty">Hãy nhập từ khóa tra cứu.</div>';return}
+ const results=[];
+ if(scope!=="procedure") allLawData().forEach(d=>{const hay=[d.name,d.number,d.note,d.issuer,d.status].join(" ").toLocaleLowerCase("vi");if(hay.includes(q))results.push({kind:"Văn bản",title:d.name,desc:d.number+" · "+d.status,action:`<a href="${d.url}" target="_blank" rel="noopener">Mở nguồn ↗</a>`,rank:0})});
+ if(scope!=="law") PROCEDURES.forEach(p=>{const hay=[p.name,p.desc,...p.checks].join(" ").toLocaleLowerCase("vi");if(hay.includes(q))results.push({kind:"Nhóm thủ tục",title:p.name,desc:p.desc,action:`<button class="btn soft" data-open-proc="${p.id}">Mở nội dung →</button>`,rank:1})});
+ host.innerHTML=results.length?results.map(r=>`<article class="search-result"><b>${escapeHTML(r.title)}</b><small>${escapeHTML(r.kind)} · ${escapeHTML(r.desc)}</small>${r.action}</article>`).join(""):'<div class="empty">Không tìm thấy kết quả trong danh mục hiện có. Thử từ khóa khác hoặc mở nguồn tra cứu chính thức.</div>';
+ host.querySelectorAll("[data-open-proc]").forEach(b=>b.addEventListener("click",()=>{go("procedures");$("procedureSelect").value=b.dataset.openProc;showProcedure()}));
+}
+$("deskSearchBtn").addEventListener("click",runDeskSearch);
+$("deskSearch").addEventListener("keydown",e=>{if(e.key==="Enter")runDeskSearch()});
+$("deskSearchType").addEventListener("change",()=>{if($("deskSearch").value.trim())runDeskSearch()});
+$("deskAiRun").addEventListener("click",async()=>{
+ const payload={task:$("deskAiTask").value,type:$("deskAiType").value.trim(),facts:$("deskAiFacts").value.trim(),documents:"",question:$("deskAiQuestion").value.trim(),legal_sources:""};
+ if(!payload.facts&&!payload.question){$("deskAiStatus").className="notice warn";$("deskAiStatus").textContent="Nhập dữ kiện hoặc câu hỏi trước khi phân tích.";return}
+ if(!payload.question){$("deskAiStatus").className="notice warn";$("deskAiStatus").textContent="Cần nhập câu hỏi trọng tâm để AI phân tích đúng yêu cầu.";return}
+ const btn=$("deskAiRun");btn.disabled=true;btn.textContent="Đang phân tích...";$("deskAiStatus").className="notice info";$("deskAiStatus").textContent="Đang kết nối Google Gemini...";$("deskAiResult").textContent="Đang xử lý yêu cầu...";
+ try{const answer=await geminiGenerate(payload);$("deskAiResult").textContent=answer;$("deskAiStatus").className="notice success";$("deskAiStatus").textContent="Đã nhận kết quả từ Gemini. Cần kiểm tra lại điều khoản và nguồn văn bản trước khi sử dụng."}
+ catch(err){$("deskAiStatus").className="notice danger";$("deskAiStatus").textContent="Chưa kết nối được AI: "+err.message;$("deskAiResult").textContent="Nội dung đã nhập vẫn được giữ lại. Kiểm tra API key, hạn mức Gemini và kết nối Internet."}
+ finally{btn.disabled=false;btn.textContent="✦ Phân tích hồ sơ"}
+});
+$("deskAiClear").addEventListener("click",()=>{["deskAiType","deskAiFacts","deskAiQuestion"].forEach(id=>$(id).value="");$("deskAiTask").selectedIndex=0;$("deskAiResult").textContent="Kết quả tư vấn sẽ hiển thị tại đây.";$("deskAiStatus").className="notice warn";$("deskAiStatus").textContent="Đã xóa nội dung biểu mẫu."});
+
+loadStore();updateStats();renderLaws();renderProcedures();renderReviewChecks();setupDeadline();
+$("today").textContent=new Date().toLocaleDateString("vi-VN");
+
+// Thanh chức năng có thể kéo giữa vị trí ngang (taskbar) và dọc (cột trái).
+(function setupTaskbarDrag(){
+ const app=document.getElementById('app');
+ const sidebar=document.getElementById('sidebar');
+ const grip=document.createElement('button');
+ grip.id='taskbarGrip';grip.type='button';grip.title='Giữ và kéo: lên trên để đặt thanh ngang, sang trái để đặt thanh dọc';grip.setAttribute('aria-label','Kéo thanh chức năng đổi vị trí');grip.textContent='⠿';
+ sidebar.insertBefore(grip,sidebar.firstChild);
+ let startX=0,startY=0,pointerId=null,moved=false;
+ grip.addEventListener('pointerdown',e=>{startX=e.clientX;startY=e.clientY;pointerId=e.pointerId;moved=false;grip.setPointerCapture(pointerId)});
+ grip.addEventListener('pointermove',e=>{if(pointerId!==e.pointerId)return;if(Math.abs(e.clientX-startX)+Math.abs(e.clientY-startY)>12)moved=true});
+ grip.addEventListener('pointerup',e=>{if(pointerId!==e.pointerId)return;const dx=e.clientX-startX,dy=e.clientY-startY;if(moved){if(e.clientX<Math.max(150,window.innerWidth*.22)&&Math.abs(dx)>Math.abs(dy)*.65){app.classList.add('nav-vertical');app.classList.remove('nav-compact')}else if(e.clientY<window.innerHeight*.35||Math.abs(dy)>Math.abs(dx)){app.classList.remove('nav-vertical');app.classList.remove('nav-compact')}}pointerId=null});
+ grip.addEventListener('click',()=>{if(!moved)app.classList.toggle('nav-vertical')});
+ const oldCollapse=document.getElementById('navCollapseBtn');
+ if(oldCollapse)oldCollapse.title='Thu gọn hoặc mở rộng tên chức năng';
+})();
+
+</script>
+
+
+</body>
+</html>
